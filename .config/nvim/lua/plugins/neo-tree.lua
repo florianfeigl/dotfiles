@@ -9,8 +9,5 @@ return {
   },
   keys = {
     { '<C-f>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
-    --    config = function()
-    --      require("neo-tree").setup()
-    --    end,
   },
 }

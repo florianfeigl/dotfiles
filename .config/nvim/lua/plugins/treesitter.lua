@@ -4,24 +4,17 @@ return {
     run = ':TSUpdate', -- This command is run after installation to update Treesitter parsers
     config = function()
       require('nvim-treesitter.configs').setup {
-        -- Add languages to be installed here that you want installed for Treesitter
         ensure_installed = { 'lua', 'python', 'rust', 'markdown', 'vimdoc', 'vim', 'bash' },
-
-        -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
         auto_install = true,
-
-        -- Install languages synchronously (only applied to `ensure_installed`)
         sync_install = false,
-
-        -- List of parsers to ignore installing
         ignore_install = { '' },
 
         highlight = {
-          enable = true, -- false will disable the whole extension
+          enable = true,
         },
 
         indent = {
-          enable = true, -- Indentation based on treesitter for supported languages
+          enable = true,
         },
 
         incremental_selection = {
@@ -37,7 +30,7 @@ return {
         textobjects = {
           select = {
             enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
             keymaps = {
               -- You can use the capture groups defined in textobjects.scm
               ['aa'] = '@parameter.outer',
