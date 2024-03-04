@@ -1,6 +1,6 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v3.x',
+  version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -10,4 +10,16 @@ return {
   keys = {
     { '<C-f>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
   },
+  confg = function()
+    require('neo-tree').setup {
+      opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false,
+          },
+        },
+      },
+    }
+  end,
 }
