@@ -8,7 +8,7 @@ return {
     '3rd/image.nvim',
   },
   keys = {
-    { '<C-f>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
+    { '<C-p>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
   },
   confg = function()
     require('neo-tree').setup {

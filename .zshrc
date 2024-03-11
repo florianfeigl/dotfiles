@@ -1,12 +1,18 @@
+# vi mode
+#bindkey -v
+#bindkey -l
+
+# history settings
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+HISTSIZE=1000
+SAVEHIST=2000
+
 # aliases 
 alias ll="ls -al"
 
 # paths 
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-
-# warp
-WARP_THEMES_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/warp-terminal/themes"
-export WARP_SHELL="starship"
 
 # editor
 export VISUAL="nvim"
