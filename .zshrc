@@ -20,4 +20,3 @@ export EDITOR="$VISUAL"
 
 # eval 
 eval "$(tmuxifier init -)"
-eval "$(starship init zsh)"

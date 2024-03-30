@@ -1,12 +1,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-    '3rd/image.nvim',
-  },
+  dependencies = {},
   keys = {
     { '<C-p>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
   },
