@@ -1,20 +1,13 @@
+-- plugins/neo-tree.lua
+
 return {
-  'nvim-neo-tree/neo-tree.nvim',
-  version = '*',
-  dependencies = {},
-  keys = {
-    { '<C-p>', '<cmd>Neotree toggle<cr>', desc = '[F]iles with Neotree' },
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+    "3rd/image.nvim",
   },
-  confg = function()
-    require('neo-tree').setup {
-      opts = {
-        filesystem = {
-          filtered_items = {
-            visible = true,
-            hide_dotfiles = false,
-          },
-        },
-      },
-    }
-  end,
+  vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>')
 }
