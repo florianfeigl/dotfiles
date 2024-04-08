@@ -1,30 +1,31 @@
 return {
   {
-    "williamboman/mason.nvim",
+    'williamboman/mason.nvim',
     config = function()
-      require("mason").setup()
-    end
+      require('mason').setup()
+    end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    'williamboman/mason-lspconfig.nvim',
     config = function()
-      require("mason-lspconfig").setup {
+      require('mason-lspconfig').setup {
         ensure_installed = {
-          "lua_ls",
-          "pyright",
-          "rust_analyzer",
-          "html",
-          "cssls",
-          "sqlls",
+          'lua_ls',
+          'pyright',
+          'rust_analyzer',
+          'html',
+          'cssls',
+          'sqlls',
+          'stylua',
         },
-        automatic_installation = true
+        automatic_installation = true,
       }
-    end
+    end,
   },
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     config = function()
-      local lspconfig = require('lspconfig')
+      local lspconfig = require 'lspconfig'
 
       lspconfig.lua_ls.setup {}
       lspconfig.pyright.setup {}
@@ -32,6 +33,7 @@ return {
       lspconfig.html.setup {}
       lspconfig.cssls.setup {}
       lspconfig.sqlls.setup {}
+      lspconfig.stylua.setup {}
 
       -- Global mappings.
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -65,8 +67,8 @@ return {
           vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
           end, opts)
-        end
+        end,
       })
-    end
+    end,
   },
 }
