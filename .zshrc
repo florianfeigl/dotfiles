@@ -2,11 +2,14 @@
 #bindkey -v
 #bindkey -l
 
-# history settings
+# history with fzf
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
-HISTSIZE=1000
-SAVEHIST=2000
+source <(fzf --zsh)
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
 
 # aliases 
 alias ll="ls -al"
@@ -18,5 +21,5 @@ export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
-# eval 
+# eval tmuxifier
 eval "$(tmuxifier init -)"
