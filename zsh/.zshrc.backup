@@ -1,0 +1,49 @@
+# Starship
+eval "$(starship init zsh)"
+
+# fzf
+eval "(fzf)" # legacy
+# source <(fzf --zsh) # new (0.48.0 or later)
+
+# Keybindings
+bindkey -v
+bindkey ^R history-incremental-search-backward
+bindkey ^S history-incremental-search-forward
+
+# History-Suche mit den Pfeiltasten
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Autocomplete
+autoload -Uz compinit
+compinit
+
+# Aliases 
+alias ls="eza --color"
+alias ll="eza -lah"
+alias tree="eza --tree"
+
+# Exports 
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export TERM="alacritty"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+
+# EVAL 
+eval "$(tmuxifier init -)"
+

@@ -13,4 +13,4 @@ Multiplexer, so far so good.
 Simple minimal configuration.
 
 #### zsh
-.zshrc + Starship configuration.
+zsh with different settings. Starship, Oh-my-zsh! and powerlevel10k are up for configuration.
