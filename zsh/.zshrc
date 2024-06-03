@@ -27,5 +27,9 @@ export TERM="alacritty"
 # evals
 eval "$(tmuxifier init -)"
 
-# sources
-source <(fzf --zsh)
+# fzf
+eval "(fzf)" # legacy
+# source <(fzf --zsh) # new (0.48.0 or later)
+
+# starship
+eval "$(starship init zsh)"

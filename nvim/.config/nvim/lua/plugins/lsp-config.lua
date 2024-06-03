@@ -16,7 +16,6 @@ return {
           'html',
           'cssls',
           'sqlls',
-          'stylua',
         },
         automatic_installation = true,
       }
@@ -33,7 +32,6 @@ return {
       lspconfig.html.setup {}
       lspconfig.cssls.setup {}
       lspconfig.sqlls.setup {}
-      lspconfig.stylua.setup {}
 
       -- Global mappings.
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
