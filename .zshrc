@@ -9,14 +9,20 @@ HISTSIZE=1000
 SAVEHIST=2000
 
 # aliases 
-alias ll="ls -al"
+alias ls="eza"
+alias ll="eza -alh"
+alias tree="eza --tree"
 
-# paths 
+# exports 
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 
-# editor
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
-# eval 
+export TERM="alacritty"
+
+# eval tmuxifier
 eval "$(tmuxifier init -)"
+
+# fzf config
+source <(fzf --zsh)
