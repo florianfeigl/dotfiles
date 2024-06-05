@@ -131,7 +131,7 @@ bindsym $mod+r mode "resize"
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 - Communication"
+set $ws1 "1 - Interface"
 set $ws2 "2 - Browsing"
 set $ws3 "3 - Development"
 set $ws4 "4 - Files"
