@@ -1,7 +1,6 @@
 set nu rnu
 set nocompatible
-filetype on
-filetype indent on
+filetype plugin indent on
 syntax on
 set shiftwidth=2
 set tabstop=2
@@ -15,5 +14,5 @@ set showmatch
 set hlsearch
 set wildmenu
 set autoindent
-nnoremap <C-d> <C-dzz>
-nnoremap <C-u> <C-uzz>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
