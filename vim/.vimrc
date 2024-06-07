@@ -15,3 +15,5 @@ set showmatch
 set hlsearch
 set wildmenu
 set autoindent
+nnoremap <C-d> <C-dzz>
+nnoremap <C-u> <C-uzz>
