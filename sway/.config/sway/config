@@ -133,7 +133,7 @@ bindsym $mod+r mode "resize"
 # Switch to workspace
 set $ws1 "1 - Interface"
 set $ws2 "2 - Browsing"
-set $ws3 "3 - Development"
+set $ws3 "3 - Terminal"
 set $ws4 "4 - Files"
 set $ws5 "5 - System Monitoring"
 set $ws6 "6 - Configuration"
