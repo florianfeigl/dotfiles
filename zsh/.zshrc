@@ -38,7 +38,7 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Aliases
 alias ls="eza --color"
@@ -54,8 +54,8 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 # EVAL
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
+#eval "$(fzf --zsh)"
+#eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -63,8 +63,8 @@ eval "$(tmuxifier init -)"
 
 # Keybindings
 bindkey -e
-bindkey '^k' history-search-backward
-bindkey '^j' history-search-forward
+#bindkey '^k' history-search-backward
+#bindkey '^j' history-search-forward
 
 # History
 HISTSIZE=5000
@@ -82,4 +82,6 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-#zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

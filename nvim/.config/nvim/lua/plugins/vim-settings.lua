@@ -8,7 +8,13 @@ return {
 
   vim.cmd 'set nu rnu',
 
-  -- Custom Mappings
+  -- Custom Motion Mappings
   vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true }),
-  vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true }),
+
+  -- tmux-vim
+  ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
+  ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
+  ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+  ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
 }

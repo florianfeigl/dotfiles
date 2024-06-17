@@ -70,6 +70,10 @@ return {
       ["<leader>t"] = {
         name = "+terminal",
         t = { "<cmd>ToggleTerm<cr>", "Toggle Terminal" },
+      },
+      ["<leader>s"] = {
+        name = "+snapshot",
+        c = { ":Silicon<CR>", mode = "v", "Snapshot Code" },
       }
     })
   end

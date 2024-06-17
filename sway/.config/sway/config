@@ -103,6 +103,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# Keyboard Layouts
+bindsym $alt+1 input * xkb_layout de
+bindsym $alt+2 input * xkb_layout de && input * xkb_variant neo
+
 # Drag/resize floating windows:
 floating_modifier $mod normal
 
@@ -254,8 +258,15 @@ bindsym $mod+space exec $menu
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
 
+# Screenshot des gesamten Bildschirms
+bindsym $mod+Shift+s exec grim ~/Pictures/Screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png
+
+# Screenshot eines ausgewählten Bereichs
+bindsym $mod+Shift+r exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png
+
 #======#
 # Misc #
 #======#
 include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*
+
