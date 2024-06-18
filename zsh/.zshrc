@@ -52,6 +52,7 @@ export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export TERM="alacritty"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # EVAL
 #eval "$(fzf --zsh)"
