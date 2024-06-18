@@ -8,7 +8,6 @@ return {
 		vim.o.timeoutlen = 300
 	end,
 	opts = {},
-
 	config = function()
 		local wk = require("which-key")
 
@@ -61,7 +60,7 @@ return {
 				b = { "<cmd>Telescope buffers", "Search Buffers" },
 				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
 				h = { "<cmd> Telescope help_tags", "Help Tags" },
-				n = { "New File" }, -- Nur ein Label, ohne Mapping
+--				n = { "New File" }, -- Nur ein Label, ohne Mapping
 			},
 			["<leader>w"] = {
 				name = "+window",
@@ -83,8 +82,8 @@ return {
 			},
 			["<leader>s"] = {
 				name = "+snapshot",
-				c = { ":Silicon<CR>", mode = "v", "Snapshot Code" },
+				c = { "<cmd>:Silicon<CR>", mode = "v", "Snapshot Code" },
 			},
-		})
+	})
 	end,
 }
