@@ -21,12 +21,6 @@ return {
 				},
 			},
 			operators = { gc = "Kommentare" },
-			key_labels = {
-				-- Labels für bestimmte Tasten überschreiben
-				-- ["<space>"] = "SPC",
-				-- ["<cr>"] = "RET",
-				-- ["<tab>"] = "TAB",
-			},
 			icons = {
 				breadcrumb = "»", -- Symbol für Breadcrumbs
 				separator = "➜", -- Symbol zwischen Taste und Label
@@ -54,36 +48,36 @@ return {
 		-- Keymappings
 		wk.register({
 			["<leader>f"] = {
-				name = "+file", -- Optionale Gruppennamen
-				f = { "<cmd>Telescope find_files<cr>", "Find File" },
-				g = { "<cmd>Telescope live_grep<br>", "Live Grep" },
-				b = { "<cmd>Telescope buffers", "Search Buffers" },
-				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
-				h = { "<cmd> Telescope help_tags", "Help Tags" },
---				n = { "New File" }, -- Nur ein Label, ohne Mapping
+				name = "+file",
+				f = { "<cmd>Telescope find_files<CR>", "Find File" },
+				g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+				b = { "<cmd>Telescope buffers<CR>", "Search Buffers" },
+				r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File", noremap = false },
+				h = { "<cmd> Telescope help_tags<CR>", "Help Tags" },
+				-- x = { "New File" }, -- Nur ein Label, ohne Mapping
 			},
 			["<leader>w"] = {
 				name = "+window",
-				v = { "<cmd>vsplit<cr>", "Vertical Split" },
-				h = { "<cmd>split<cr>", "Horizontal Split" },
-				w = { "<cmd>close<cr>", "Close Window" },
+				v = { "<cmd>vsplit<CR>", "Vertical Split" },
+				h = { "<cmd>split<CR>", "Horizontal Split" },
+				w = { "<cmd>close<CR>", "Close Window" },
 			},
-			["<leader>g"] = {
-				name = "+git",
-				s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
-				u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
-				r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-				p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Hunk" },
-				b = { "<cmd>Gitsigns blame_line<cr>", "Blame Line" },
-			},
+			--			["<leader>g"] = {
+			--				name = "+git",
+			--				s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
+			--				u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Undo Stage Hunk" },
+			--				r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
+			--				p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview Hunk" },
+			--				b = { "<cmd>Gitsigns blame_line<CR>", "Blame Line" },
+			--			},
 			["<leader>t"] = {
 				name = "+terminal",
-				t = { "<cmd>ToggleTerm<cr>", "Toggle Terminal" },
+				t = { "<cmd>ToggleTerm<CR>", "Toggle Terminal" },
 			},
 			["<leader>s"] = {
 				name = "+snapshot",
 				c = { "<cmd>:Silicon<CR>", mode = "v", "Snapshot Code" },
 			},
-	})
+		})
 	end,
 }
