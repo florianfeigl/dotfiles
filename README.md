@@ -1,5 +1,9 @@
 # dotfile repository to be delivered with `stow`, container of pkgs-lists
 
+### Usage
+
+stow --target=$HOME <dir>
+
 #### nvim
 So far, it is looking good.
 
