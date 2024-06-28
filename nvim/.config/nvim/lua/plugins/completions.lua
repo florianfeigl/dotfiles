@@ -1,8 +1,11 @@
 return {
   {
+<<<<<<< HEAD
     "hrsh7th/cmp-nvim-lsp",
   },
   {
+=======
+>>>>>>> 264fef9cafbeb1bdafd2014be9632921b57ab3ea
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",

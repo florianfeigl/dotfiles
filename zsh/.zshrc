@@ -55,7 +55,11 @@ export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # EVAL
+<<<<<<< HEAD
 eval "$(fzf --zsh)"
+=======
+#eval "$(fzf --zsh)"
+>>>>>>> 264fef9cafbeb1bdafd2014be9632921b57ab3ea
 #eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
 
