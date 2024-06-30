@@ -24,7 +24,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-<<<<<<< HEAD
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
@@ -47,7 +46,6 @@ return {
       lspconfig.sqlls.setup({
         capabilities = capabilities
       })
-=======
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup({})
@@ -56,7 +54,6 @@ return {
       lspconfig.html.setup({})
       lspconfig.cssls.setup({})
       lspconfig.sqlls.setup({})
->>>>>>> 264fef9cafbeb1bdafd2014be9632921b57ab3ea
 
       -- Global mappings.
       vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
