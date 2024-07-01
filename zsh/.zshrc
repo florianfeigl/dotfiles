@@ -64,14 +64,12 @@ setxkbmap de
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export TERMINAL="alacritty"
->>>>>>> 9ce10d3f6b983d34ef0125aa989304627f7670dd
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # EVAL
 eval "$(fzf --zsh)"
-=======
 source <(fzf --zsh)
 #eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
@@ -81,6 +79,7 @@ eval "$(tmuxifier init -)"
 
 # Keybindings
 bindkey -e
+bindkey '^f' autosuggest-accept
 #bindkey '^k' history-search-backward
 #bindkey '^j' history-search-forward
 
