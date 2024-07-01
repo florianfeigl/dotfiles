@@ -47,15 +47,29 @@ alias tree="eza --tree"
 #alias ls="ls --color"
 #alias ll="ls --color -lah"
 
+<<<<<<< HEAD
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export TERM="alacritty"
+=======
+# Basic X Settings
+setxkbmap de
+
+# Exports
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export TERMINAL="alacritty"
+>>>>>>> 9ce10d3f6b983d34ef0125aa989304627f7670dd
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # EVAL
+<<<<<<< HEAD
 eval "$(fzf --zsh)"
+=======
+source <(fzf --zsh)
+#eval "$(fzf --zsh)"
+>>>>>>> 9ce10d3f6b983d34ef0125aa989304627f7670dd
 #eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
 

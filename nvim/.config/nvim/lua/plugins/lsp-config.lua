@@ -46,6 +46,17 @@ return {
       lspconfig.sqlls.setup({
         capabilities = capabilities
       })
+<<<<<<< HEAD
+=======
+      local lspconfig = require("lspconfig")
+
+      lspconfig.lua_ls.setup({})
+      lspconfig.pyright.setup({})
+      lspconfig.rust_analyzer.setup({})
+      lspconfig.html.setup({})
+      lspconfig.cssls.setup({})
+      lspconfig.sqlls.setup({})
+>>>>>>> 9ce10d3f6b983d34ef0125aa989304627f7670dd
 
       -- Global mappings.
       vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
