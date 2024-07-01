@@ -53,6 +53,7 @@ return {
 				g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
 				b = { "<cmd>Telescope buffers<CR>", "Search Buffers" },
 				r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File", noremap = false },
+        F = { "Format File"},
 				h = { "<cmd> Telescope help_tags<CR>", "Help Tags" },
 				-- x = { "New File" }, -- Nur ein Label, ohne Mapping
 			},
