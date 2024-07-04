@@ -1,0 +1,5 @@
+key_bindings:
+  - { key: Home,   chars: "\x1b[H" }
+  - { key: End,    chars: "\x1b[F" }
+  - { key: Insert, chars: "\x1b[2~" }
+  - { key: Delete, chars: "\x1b[3~" }

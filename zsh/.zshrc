@@ -56,14 +56,10 @@ alias tree="eza --tree"
 
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export TERM="alacritty"
-
-# Basic X Settings
-setxkbmap de
-
-# Exports
+export TERM="xterm-256color"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export TERMINAL="alacritty"
+#export TERMINAL="alacritty"
+export TERM="xterm-256color"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -78,7 +74,11 @@ eval "$(tmuxifier init -)"
 
 # Keybindings
 bindkey -e
-bindkey '^f' autosuggest-accept
+bindkey "^f" autosuggest-accept
+bindkey "Home" beginning-of-line
+bindkey "End" end-of-line
+bindkey "Insert" overwrite-mode
+bindkey "Delete" delete-char
 #bindkey '^k' history-search-backward
 #bindkey '^j' history-search-forward
 
