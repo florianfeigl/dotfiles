@@ -15,16 +15,18 @@ order += "disk /"
 #order += "run_watch DHCP"
 #order += "ipv6"
 #order += "run_watch VPN"
-order += "wireless wlan0" # wlp4s0
-order += "ethernet enp0s25"
+#order += "wireless wlp4s0"
+order += "wireless wlan0"
+#order += "ethernet enp0s25"
 order += "battery 0"
+order += "battery 1"
 order += "cpu_temperature 0"
 order += "cpu_usage 0"
 order += "load"
 order += "tztime local"
 
 wireless wlan0 {
-    format_up = "%quality   \"%essid\" %ip"
+    format_up = "%quality  %essid %ip"
     format_down = ""
 }
 
@@ -63,7 +65,7 @@ battery 1 {
     status_unk = " "
     status_full = " "
 }
-
+j
 run_watch DHCP {
     pidfile = "/var/run/dhclient*.pid"
 }
@@ -102,3 +104,5 @@ volume master {
     mixer = "Master"
     mixer_idx = 0
 }
+
+run_command

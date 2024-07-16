@@ -56,10 +56,9 @@ alias tree="eza --tree"
 
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export TERM="xterm-256color"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-#export TERMINAL="alacritty"
-export TERM="xterm-256color"
+export TERMINAL="alacritty"
+#export TERM="xterm-256color"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"

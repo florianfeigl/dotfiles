@@ -1,4 +1,7 @@
+bat
 eza
+feh
+fzf
 git
 lazygit
 libreoffice-still
@@ -7,6 +10,8 @@ neovim
 ranger 
 ripgrep
 tmux 
+ttf-hack
+ttf-hack-nerd
 ttf-liberation
 ttf-liberation-mono-nerd
 zsh 

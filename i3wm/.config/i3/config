@@ -8,11 +8,11 @@ font pango:Hack Nerd Font 12
 exec --no-startup-id dex --autostart --environment i3
 
 # Wallpaper restore
-exec_always feh --bg-fill /usr/share/backgrounds/wild.png
-#exec --no-startup-id nitrogen --restore
+#exec_always feh --bg-fill /usr/share/backgrounds/wild.png
+exec --no-startup-id nitrogen --restore
 
 # Transparency
-exec_always picom -f
+#exec_always picom -f
 
 # The combination of xss-lock, nm-applet and pactl 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -22,10 +22,14 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindcode 69 exec --no-startup-id pamixer -i 10 && $refresh_i3status
+bindcode 68 exec --no-startup-id pamixer -d 10 && $refresh_i3status
+bindcode 67 exec --no-startup-id pamixer -t && $refresh_i3status
+bindcode 70 exec --no-startup-id pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t && $refresh_i3status
+
+# Monitor brightness (not fixed yet: notify-send?)
+bindcode 72 exec --no-startup-id brightnessctl set +82.5 && notify-send "Brightness Up" -h int:value:$(cat /sys/class/backlight/intel_backlight/brightness)
+bindcode 71 exec --no-startup-id brightnessctl set 82.5- && notify-send "Brightness Down" -h int:value:$(cat /sys/class/backlight/intel_backlight/brightness)
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -95,16 +99,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspace configuration
-set $ws1 "1:monitor"
-set $ws2 "2:communication"
-set $ws3 "3:terminal"
+set $ws1 "1:term"
+set $ws2 "2:web"
+set $ws3 "3:media"
 set $ws4 "4:files"
-set $ws5 "5:academic"
-set $ws6 "6:custom"
-set $ws7 "7:custom"
-set $ws8 "8:custom"
-set $ws9 "9:custom"
-set $ws10 "10:custom"
+set $ws5 "5:office"
+set $ws6 "6:academic"
+set $ws7 "7:writing"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -135,11 +139,11 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'You heard me!' 'i3-msg exit'"
 
 # resize window 
 mode "resize" {
-# Pressing left will shrink the window’s width.
+# Pressing left will shrink the window’s width
   bindsym h resize shrink width 10 px or 10 ppt
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
@@ -162,9 +166,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar 
 bar {
   status_command i3status --config ~/.config/i3/i3status.conf
-  i3bar_command i3bar --transparency
-  padding 5px
-  tray_output primary
-  tray_padding 0 
-  workspace_buttons yes
+    i3bar_command i3bar --transparency
+    padding 5px
+    tray_output primary
+    tray_padding 0 
+    workspace_buttons yes
 }

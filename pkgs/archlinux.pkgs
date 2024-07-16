@@ -1,9 +1,10 @@
+btop
 cronie
 cups
-feh 
 gutenprint
 htop 
 mtr
+network-manager-applet
 networkmanager
 nginx 
 pipewire 
@@ -15,4 +16,3 @@ powertop
 qutebrowser 
 system-config-printer
 wireshark-cli
-wpa_supplicant
