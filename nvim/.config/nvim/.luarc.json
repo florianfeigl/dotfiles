@@ -1,18 +1,6 @@
 {
     "diagnostics.globals": [
         "vim",
-        "integrations",
-        "default_integrations",
-        "custom_highlights",
-        "styles",
-        "no_underline",
-        "no_bold",
-        "no_italic",
-        "dim_inactive",
-        "term_colors",
-        "show_end_of_buffer",
-        "transparent_background",
-        "background",
-        "flavour"
+        "api_key_cmd"
     ]
 }
