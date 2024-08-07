@@ -1,3 +1,5 @@
+-- plugins/kanagawa.lua
+
 return {
   "rebelot/kanagawa.nvim",
   config = function()

@@ -1,4 +1,5 @@
--- chat-gpt.lua
+-- plugins/chat-gpt.lua
+
 return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",

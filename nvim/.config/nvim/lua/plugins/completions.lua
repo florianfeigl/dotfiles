@@ -1,3 +1,5 @@
+-- plugins/completions.lua
+
 return {
   {
     "hrsh7th/cmp-nvim-lsp",

@@ -1,4 +1,4 @@
--- tmux
+-- plugins/tmux.lua
 
 return {
   'christoomey/vim-tmux-navigator',
