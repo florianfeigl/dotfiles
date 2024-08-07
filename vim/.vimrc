@@ -16,3 +16,4 @@ set wildmenu
 set autoindent
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap <C-n> :Explore<CR>

@@ -57,15 +57,15 @@ alias tree="eza --tree"
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export TERMINAL="alacritty"
-#export TERM="xterm-256color"
+export TERMINAL="kitty"
+export TERM="kitty"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# EVAL
+# SOURCE & EVAL
 source <(fzf --zsh)
-#eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -77,7 +77,7 @@ bindkey "^f" autosuggest-accept
 bindkey "Home" beginning-of-line
 bindkey "End" end-of-line
 bindkey "Insert" overwrite-mode
-bindkey "Delete" delete-char
+bindkey '^[[3~' delete-char
 #bindkey '^k' history-search-backward
 #bindkey '^j' history-search-forward
 

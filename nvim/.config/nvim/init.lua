@@ -1,2 +1,2 @@
 -- initialize lazy
-require("config.lazy")
+require('config.lazy')

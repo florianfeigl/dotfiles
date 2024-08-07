@@ -1,0 +1,11 @@
+2024-08-07 10:19:22 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2024-08-07 10:19:22 - CORE DUMPS: You are running a development version of i3, so coredumps were automatically enabled (ulimit -c unlimited).
+2024-08-07 10:19:22 - CORE DUMPS: Your current working directory is "/home/flori/src/Dropbox/Documents/Writing/Station III OST".
+2024-08-07 10:19:22 - CORE DUMPS: Your core_pattern is: |/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h
+2024-08-07 10:19:22 - i3 4.23 starting
+2024-08-07 10:19:22 - Parsing configfile /home/flori/src/Grive/Repositories/dotfiles/i3wm/.config/i3/config
+2024-08-07 10:19:22 - Changing working directory to config file directory /home/flori/src/Grive/Repositories/dotfiles/i3wm/.config/i3
+2024-08-07 10:19:22 - deciding for version 4 due to this line: # i3 config file (v4)
+2024-08-07 10:19:22 - [libi3] ../libi3/font.c Using Pango font Hack Nerd Font, size 12
+2024-08-07 10:19:22 - [libi3] ERROR: Refusing to create UNIX socket at /run/user/1000/i3/ipc-socket.1116: Socket is already in use
+i3: Could not create the IPC socket: /run/user/1000/i3/ipc-socket.1116
