@@ -15,4 +15,5 @@ postgresql
 powertop 
 qutebrowser 
 system-config-printer
+systemd-resolvconf
 wireshark-cli
