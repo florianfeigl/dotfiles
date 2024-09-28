@@ -38,6 +38,7 @@ export ARCHFLAGS="-arch x86_64"
 alias ls="eza --color"
 alias ll="eza -lah"
 alias tree="eza --tree"
+alias cat="bat"
 #alias ls="ls --color"
 #alias ll="ls --color -lah"
 
@@ -55,9 +56,6 @@ export PATH="$HOME/.local/bin:$PATH"
 source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
 bindkey -e
@@ -96,4 +94,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

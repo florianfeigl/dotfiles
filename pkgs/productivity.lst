@@ -1,13 +1,18 @@
 bat
 eza
+fd 
 feh
+ffmpegthumbnailer
 fzf
 git
+imagemagick
+jq
 lazygit
 libreoffice-still
 libreoffice-still-de
 neovim 
-ranger 
+p7zip
+poppler 
 ripgrep
 tmux 
 ttf-hack
@@ -15,4 +20,5 @@ ttf-hack-nerd
 ttf-liberation
 ttf-liberation-mono-nerd
 yazi
+zoxide 
 zsh 
