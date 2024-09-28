@@ -5,6 +5,7 @@ htop
 mtr
 postgresql
 powertop 
+pv
 qutebrowser 
 system-config-printer
 systemd-resolvconf
