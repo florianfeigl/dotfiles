@@ -94,5 +94,3 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
