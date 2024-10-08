@@ -1,0 +1,8 @@
+[init]
+	defaultBranch = none
+[fetch]
+	recurseSubmodules = false
+[transfer]
+	bundleURI = true
+[http "https://gitlab.cosy.sbg.ac.at"]
+	sslCAInfo = /home/florian/Git/dotfiles/builds/fBoo-af43/0/feivel/cs-plus.tmp/CI_SERVER_TLS_CA_FILE
