@@ -7,5 +7,8 @@ Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
 Environment=DISPLAY=:0
 Type=simple
 ExecStart=/home/flori/.cargo/bin/kanata --cfg /home/flori/.config/kanata/config.kbd
-Restart=no [Install]
+Restart=on-failure
+RestartSec=5
+
+[Install]
 WantedBy=default.target
