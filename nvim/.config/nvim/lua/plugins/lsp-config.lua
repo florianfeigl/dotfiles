@@ -48,6 +48,9 @@ return {
 			lspconfig.sqlls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.arduino_language_server.setup({
+        capabilities = capabilities,
+      })
 
 			-- Global mappings.
 			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
