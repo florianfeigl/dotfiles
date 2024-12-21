@@ -5,18 +5,41 @@
 )
 
 (defsrc
-  caps
-)
-
-(defvar
-  tap-time 200
-  hold-time 200
+  caps 
+  a
+  s
+  d
+  f
+  j
+  k
+  l
+;;  ö
 )
 
 (defalias
   escctrl (tap-hold 100 100 esc lctrl)
+
+  asuper (tap-hold 100 100 a lmet)
+  salt(tap-hold 100 100 s lalt)
+  dshift (tap-hold 100 100 d lshift)
+  fctrl (tap-hold 100 100 f lctrl)
+
+  jctrl (tap-hold 200 200 j rctrl)
+  kshift (tap-hold 200 200 k rshift)
+  lalt(tap-hold 200 200 l ralt)
+;;  ösuper (tap-hold 200 200 ö rmet)
 )
 
 (deflayer base
   @escctrl
+  
+  @asuper
+  @salt
+  @dshift
+  @fctrl
+
+  @jctrl
+  @kshift
+  @lalt
+;;  @ösuper
 )
