@@ -10,9 +10,9 @@
   s
   d
   f
-  j
-  k
-  l
+;;  j
+;;  k
+;;  l
 ;;  ö
 )
 
@@ -24,9 +24,9 @@
   dshift (tap-hold 100 100 d lshift)
   fctrl (tap-hold 100 100 f lctrl)
 
-  jctrl (tap-hold 200 200 j rctrl)
-  kshift (tap-hold 200 200 k rshift)
-  lalt(tap-hold 200 200 l ralt)
+;;  jctrl (tap-hold 200 200 j rctrl)
+;;  kshift (tap-hold 200 200 k rshift)
+;;  lalt(tap-hold 200 200 l ralt)
 ;;  ösuper (tap-hold 200 200 ö rmet)
 )
 
@@ -38,8 +38,8 @@
   @dshift
   @fctrl
 
-  @jctrl
-  @kshift
-  @lalt
+;;  @jctrl
+;;  @kshift
+;;  @lalt
 ;;  @ösuper
 )
