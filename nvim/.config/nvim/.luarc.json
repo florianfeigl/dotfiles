@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "api_key_cmd"
+        "api_key_cmd",
+        "Snacks"
     ]
 }
