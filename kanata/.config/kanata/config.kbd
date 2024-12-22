@@ -4,30 +4,26 @@
   process-unmapped-keys yes
 )
 
+(defvar
+  tap-time 100
+  hold-time 150
+)
+
 (defsrc
   caps 
   a
   s
   d
   f
-;;  j
-;;  k
-;;  l
-;;  ö
 )
 
 (defalias
   escctrl (tap-hold 100 100 esc lctrl)
 
-  asuper (tap-hold 100 100 a lmet)
-  salt(tap-hold 100 100 s lalt)
-  dshift (tap-hold 100 100 d lshift)
-  fctrl (tap-hold 100 100 f lctrl)
-
-;;  jctrl (tap-hold 200 200 j rctrl)
-;;  kshift (tap-hold 200 200 k rshift)
-;;  lalt(tap-hold 200 200 l ralt)
-;;  ösuper (tap-hold 200 200 ö rmet)
+  asuper (tap-hold $tap-time $hold-time a lmet)
+  salt(tap-hold $tap-time $hold-time s lalt)
+  dshift (tap-hold $tap-time $hold-time d lshift)
+  fctrl (tap-hold $tap-time $hold-time f lctrl)
 )
 
 (deflayer base
@@ -37,9 +33,4 @@
   @salt
   @dshift
   @fctrl
-
-;;  @jctrl
-;;  @kshift
-;;  @lalt
-;;  @ösuper
 )
