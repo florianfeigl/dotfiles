@@ -17,17 +17,25 @@
 (defalias
   escctrl (tap-hold 100 100 esc lctrl)
 
-  asuper (tap-hold $tap-time $hold-time a lmet)
-  salt(tap-hold $tap-time $hold-time s lalt)
-  dshift (tap-hold $tap-time $hold-time d lshift)
-  fctrl (tap-hold $tap-time $hold-time f lctrl)
+  hr-asuper (tap-hold $tap-time $hold-time a lmet)
+  hr-salt (tap-hold $tap-time $hold-time s lalt)
+  hr-dshift (tap-hold $tap-time $hold-time d lshift)
+  hr-fctrl (tap-hold $tap-time $hold-time f lctrl)
+
+  hr-jctrl (tap-hold $tap-time $hold-time j rctrl)
+  hr-kshift (tap-hold $tap-time $hold-time k rshift)
+  hr-lalt (tap-hold $tap-time $hold-time l ralt)
 )
 
 (deflayer base
   @escctrl
   
-  @asuper
-  @salt
-  @dshift
-  @fctrl
+  @hr-asuper
+  @hr-salt
+  @hr-dshift
+  @hr-fctrl
+
+  @hr-jctrl
+  @hr-kshift
+  @hr-lalt
 )
