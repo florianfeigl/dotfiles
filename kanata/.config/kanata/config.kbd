@@ -2,6 +2,7 @@
 
 (defcfg
   process-unmapped-keys yes
+  linux-dev /dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd
 )
 
 (defvar
@@ -12,7 +13,7 @@
 (defsrc
   caps 
   a s d f
-  j k l
+  j k l ;
 )
 
 (defalias
@@ -20,12 +21,13 @@
     
   hr-asuper (tap-hold $tap-time $hold-time a lmet)
   hr-salt (tap-hold $tap-time $hold-time s lalt)
-  hr-dsft (tap-hold $tap-time $hold-time d lsft)
+  hr-dshift (tap-hold $tap-time $hold-time d lshift)
   hr-fctrl (tap-hold $tap-time $hold-time f lctrl)
 
   hr-jctrl (tap-hold $tap-time $hold-time j rctrl)
-  hr-ksft (tap-hold $tap-time $hold-time k rsft)
+  hr-kshift (tap-hold $tap-time $hold-time k rshift)
   hr-lalt (tap-hold $tap-time $hold-time l ralt)
+  hr-oesuper (tap-hold $tap-time $hold-time (unicode ö) rmet)
 )
 
 (deflayer base
@@ -33,10 +35,11 @@
   
   @hr-asuper
   @hr-salt
-  @hr-dsft
+  @hr-dshift
   @hr-fctrl
 
   @hr-jctrl
-  @hr-ksft
+  @hr-kshift
   @hr-lalt
+  @hr-oesuper
 )
