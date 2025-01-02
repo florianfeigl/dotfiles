@@ -17,14 +17,14 @@
 
 (defalias
   escctrl (tap-hold 100 100 esc lctrl)
-
+    
   hr-asuper (tap-hold $tap-time $hold-time a lmet)
   hr-salt (tap-hold $tap-time $hold-time s lalt)
-  hr-dshift (tap-hold $tap-time $hold-time d lshift)
+  hr-dsft (tap-hold $tap-time $hold-time d lsft)
   hr-fctrl (tap-hold $tap-time $hold-time f lctrl)
 
   hr-jctrl (tap-hold $tap-time $hold-time j rctrl)
-  hr-kshift (tap-hold $tap-time $hold-time k rshift)
+  hr-ksft (tap-hold $tap-time $hold-time k rsft)
   hr-lalt (tap-hold $tap-time $hold-time l ralt)
 )
 
@@ -33,10 +33,10 @@
   
   @hr-asuper
   @hr-salt
-  @hr-dshift
+  @hr-dsft
   @hr-fctrl
 
   @hr-jctrl
-  @hr-kshift
+  @hr-ksft
   @hr-lalt
 )
