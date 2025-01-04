@@ -2,7 +2,7 @@
 
 (defcfg
   process-unmapped-keys yes
-  linux-dev /dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd
+  ;; linux-dev /dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd
 )
 
 (defvar

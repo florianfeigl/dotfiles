@@ -5,7 +5,7 @@ Documentation=https://github.com/jtroo/kanata
 [Service]
 Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:$HOME/.cargo/bin
 Type=simple
-ExecStart=/home/florian/.cargo/bin/kanata --cfg /home/florian/.config/kanata/config.kbd
+ExecStart=/home/flori/.cargo/bin/kanata --cfg /home/flori/.config/kanata/config.kbd
 Restart=no
 
 [Install]
