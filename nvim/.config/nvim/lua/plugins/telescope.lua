@@ -12,24 +12,24 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
-			--       require('telescope').setup {
-			--         mappings = {
-			--           ['C-h'] = 'which_key',
-			--         },
-			--       }
-			--     end,
-			--   },
-			--   {
-			--     'nvim-telescope/telescope-ui-select.nvim',
-			--     config = function()
-			--       require('telescope').setup {
-			--         extensions = {
-			--           ['ui-select'] = {
-			--             require('telescope.themes').get_dropdown {},
-			--           },
-			--         },
-			--         require('telescope').load_extension 'ui-select',
-			--       }
-		end,
-	},
+      require('telescope').setup {
+        mappings = {
+          ['C-h'] = 'which_key',
+        },
+      }
+    end,
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    config = function()
+      require('telescope').setup {
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown {},
+          },
+        },
+        require('telescope').load_extension 'ui-select',
+      }
+    end,
+  },
 }
