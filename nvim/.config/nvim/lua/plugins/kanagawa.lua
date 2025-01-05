@@ -1,8 +1,8 @@
 -- plugins/kanagawa.lua
 
 return {
-  "rebelot/kanagawa.nvim",
-  config = function()
-    vim.cmd("colorscheme kanagawa")
-  end
+	"rebelot/kanagawa.nvim",
+	config = function()
+		vim.cmd("colorscheme kanagawa")
+	end,
 }
