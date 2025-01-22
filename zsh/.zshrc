@@ -44,7 +44,6 @@ alias tree="eza --tree"
 
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export TERMINAL="ghostty"
 export TERM="ghostty"
 export VISUAL="nvim"
