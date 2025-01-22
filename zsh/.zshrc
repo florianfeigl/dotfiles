@@ -24,11 +24,12 @@ autoload -U compinit && compinit
 
 zinit cdreplay -q
 
-# Preferred editor for local and remote sessions
+# Editor for local and remote sessions
+export VISUAL="nvim"
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
+  export EDITOR="nvim"
 else
-  export EDITOR='vim'
+  export EDITOR="$VISUAL"
 fi
 
 # Compilation flags
@@ -43,16 +44,12 @@ alias tree="eza --tree"
 #alias ll="ls --color -lah"
 
 # Exports
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
 export TERMINAL="ghostty"
 export TERM="ghostty"
-export VISUAL="nvim"
-export EDITOR="$VISUAL"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # SOURCE & EVAL
-source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
 
