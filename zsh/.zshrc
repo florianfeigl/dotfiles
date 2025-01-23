@@ -49,7 +49,7 @@ export TERMINAL="ghostty"
 export TERM="ghostty"
 
 # SOURCE & EVAL
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
 
