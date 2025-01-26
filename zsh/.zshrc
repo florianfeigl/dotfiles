@@ -36,8 +36,8 @@ fi
 export ARCHFLAGS="-arch x86_64"
 
 # Aliases
-alias ls="eza --color"
-alias ll="eza -lah"
+alias ls="eza -l --color"
+alias ll="eza -lah --color"
 alias tree="eza --tree"
 #alias cat="bat"
 #alias ls="ls --color"
