@@ -27,11 +27,12 @@ autoload -U compinit && compinit
 
 zinit cdreplay -q
 
-# Preferred editor for local and remote sessions
+# Editor for local and remote sessions
+export VISUAL="nvim"
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
+  export EDITOR="nvim"
 else
-  export EDITOR='vim'
+  export EDITOR="$VISUAL"
 fi
 
 # Compilation flags
@@ -39,7 +40,7 @@ export ARCHFLAGS="-arch x86_64"
 
 # Aliases
 alias ls="eza --color"
-alias ll="eza -lah"
+alias ll="eza -lah --color"
 alias tree="eza --tree"
 #alias cat="bat"
 #alias ls="ls --color"
