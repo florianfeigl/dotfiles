@@ -47,7 +47,7 @@ alias tree="eza --tree"
 #alias ll="ls --color -lah"
 
 # Exports
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux-x86_64/bin:$PATH"
 export TERMINAL="kitty"
 export TERM="kitty"
 export VISUAL="nvim"
