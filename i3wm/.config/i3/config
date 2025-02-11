@@ -2,14 +2,16 @@
 # Basic Settings
 set $mod Mod4
 set $TERMINAL kitty 
-font pango:Hack Nerd Font 12
-exec --no-startup-id xrandr --output DP-2 --rotate right
+font pango:JetBrainsMono Nerd Font 12
+gaps inner 7 
 
+# Display configuration
+exec --no-startup-id xrandr --output DP-2 --rotate right
 # Start XDG autostart 
 exec --no-startup-id dex --autostart --environment i3
 
 # Wallpaper restore
-exec --no-startup-id nitrogen --restore
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-hd-wallpapers.jpg
 
 # The combination of xss-lock, nm-applet and pactl 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -35,8 +37,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty 
-# i3-sensible-terminal
+bindsym $mod+Return exec $HOME/.local/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill

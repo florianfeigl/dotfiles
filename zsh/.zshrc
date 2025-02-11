@@ -12,6 +12,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -43,18 +46,15 @@ alias tree="eza --tree"
 #alias ll="ls --color -lah"
 
 # Exports
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export TERMINAL="ghostty"
-export TERM="ghostty"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+export TERMINAL="kitty"
+export TERM="kitty"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # SOURCE & EVAL
-source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
 eval "$(tmuxifier init -)"
 
 # Keybindings
@@ -95,3 +95,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
