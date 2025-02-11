@@ -11,7 +11,7 @@ exec --no-startup-id xrandr --output DP-2 --rotate right
 exec --no-startup-id dex --autostart --environment i3
 
 # Wallpaper restore
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-hd-wallpapers.jpg
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-hd-wallpaper.jpg
 
 # The combination of xss-lock, nm-applet and pactl 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork

@@ -42,12 +42,12 @@ export ARCHFLAGS="-arch x86_64"
 alias ls="eza --color"
 alias ll="eza -lah --color"
 alias tree="eza --tree"
-#alias cat="bat"
+alias cat="bat"
 #alias ls="ls --color"
 #alias ll="ls --color -lah"
 
 # Exports
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux-x86_64/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.cargo/env:$HOME/.local/bin:/opt/nvim-linux-x86_64/bin:$PATH"
 export TERMINAL="kitty"
 export TERM="kitty"
 export VISUAL="nvim"
@@ -55,7 +55,7 @@ export EDITOR="$VISUAL"
 
 # SOURCE & EVAL
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(tmuxifier init -)"
 
 # Keybindings
