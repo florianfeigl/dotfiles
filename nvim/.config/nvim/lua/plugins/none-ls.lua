@@ -14,6 +14,8 @@ return {
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.formatting.prettier,
+        --        null_ls.builtins.formatting.clangd,
+--        null_ls.builtins.formatting.arduino_language_server,
 			},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

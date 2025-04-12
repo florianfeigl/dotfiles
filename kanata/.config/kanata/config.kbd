@@ -13,7 +13,7 @@
 (defsrc
   caps 
   a s d f
-  j k l ;
+  j k l ;; ;
 )
 
 (defalias
@@ -27,7 +27,7 @@
   hr-jctrl (tap-hold $tap-time $hold-time j rctrl)
   hr-kshift (tap-hold $tap-time $hold-time k rshift)
   hr-lalt (tap-hold $tap-time $hold-time l ralt)
-  hr-oesuper (tap-hold $tap-time $hold-time (unicode ö) rmet)
+  ;;hr-oesuper (tap-hold $tap-time $hold-time (unicode ö) rmet)
 )
 
 (deflayer base
@@ -41,5 +41,5 @@
   @hr-jctrl
   @hr-kshift
   @hr-lalt
-  @hr-oesuper
+  ;;@hr-oesuper
 )

@@ -18,6 +18,8 @@ return {
 					"html",
 					"cssls",
 					"sqlls",
+          "arduino_language_server",
+--          "clangd",
 				},
 				automatic_installation = true,
 			})
@@ -48,9 +50,9 @@ return {
 			lspconfig.sqlls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.arduino_language_server.setup({
-				capabilities = capabilities,
-			})
+--			lspconfig.clangd.setup({
+--				capabilities = capabilities,
+--			})
 
 			-- Global mappings.
 			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)

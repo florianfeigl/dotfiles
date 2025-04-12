@@ -36,12 +36,34 @@ fi
 export ARCHFLAGS="-arch x86_64"
 
 # Aliases
-alias ls="eza --color"
-alias ll="eza -lah --color"
-alias tree="eza --tree"
-#alias cat="bat"
-#alias ls="ls --color"
-#alias ll="ls --color -lah"
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --color'
+  alias ll='eza -lah --color'
+  alias tree='eza --tree'
+else
+  alias ls='ls --color=auto'
+  alias ll='ls -lah --color=auto'
+  
+  # Hinweis ausgeben, falls eza nicht installiert ist
+  echo "⚠️ Hinweis: 'eza' ist nicht installiert. Nutze Standard 'ls'."
+  
+  # Optional: Fallback für tree, falls vorhanden
+  if command -v tree >/dev/null 2>&1; then
+    alias tree='tree -C'
+  else
+    echo "⚠️ Hinweis: 'tree' ist ebenfalls nicht installiert."
+  fi
+fi
+
+# Prüfe, ob bat installiert ist
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat'
+else
+  echo "⚠️ Hinweis: 'bat' ist nicht installiert. Nutze Standard 'cat'."
+fi
+
+alias nvim="vi"
+alias cat="bat"
 
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
@@ -91,3 +113,16 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# mdp
+export MPD_HOST=172.22.173.139
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
