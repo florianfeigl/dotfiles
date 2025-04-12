@@ -45,13 +45,13 @@ else
   alias ll='ls -lah --color=auto'
   
   # Hinweis ausgeben, falls eza nicht installiert ist
-  echo "⚠️ Hinweis: 'eza' ist nicht installiert. Nutze Standard 'ls'."
+  echo "inweis: 'eza' ist nicht installiert. Nutze Standard 'ls'."
   
   # Optional: Fallback für tree, falls vorhanden
   if command -v tree >/dev/null 2>&1; then
     alias tree='tree -C'
   else
-    echo "⚠️ Hinweis: 'tree' ist ebenfalls nicht installiert."
+    echo "Hinweis: 'tree' ist ebenfalls nicht installiert."
   fi
 fi
 
@@ -59,10 +59,10 @@ fi
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 else
-  echo "⚠️ Hinweis: 'bat' ist nicht installiert. Nutze Standard 'cat'."
+  echo "Hinweis: 'bat' ist nicht installiert. Nutze Standard 'cat'."
 fi
 
-alias nvim="vi"
+alias vi="nvim"
 alias cat="bat"
 
 # Exports
