@@ -45,7 +45,7 @@ else
   alias ll='ls -lah --color=auto'
   
   # Hinweis ausgeben, falls eza nicht installiert ist
-  echo "inweis: 'eza' ist nicht installiert. Nutze Standard 'ls'."
+  echo "Hinweis: 'eza' ist nicht installiert. Nutze Standard 'ls'."
   
   # Optional: Fallback für tree, falls vorhanden
   if command -v tree >/dev/null 2>&1; then
@@ -74,6 +74,11 @@ export TERM="ghostty"
 source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(tmuxifier init -)"
+
+# SSH-Agent starten, wenn nicht verbunden
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval "$(ssh-agent -s)"
+fi
 
 # Keybindings
 bindkey -e
