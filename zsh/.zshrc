@@ -12,6 +12,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -67,12 +70,15 @@ alias cat="bat"
 
 # Exports
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
-export TERMINAL="ghostty"
-export TERM="ghostty"
+export TERMINAL="kitty"
+export TERM="kitty"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
 
 # SOURCE & EVAL
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(tmuxifier init -)"
 
 # SSH-Agent starten, wenn nicht verbunden
@@ -118,16 +124,3 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
-# mdp
-export MPD_HOST=172.22.173.139
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
