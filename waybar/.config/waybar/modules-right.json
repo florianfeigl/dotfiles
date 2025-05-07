@@ -1,0 +1,90 @@
+{
+  "custom/media": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "~/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5, 
+    "format": " {icon} {volume}% {format_source}",
+    "format-bluetooth": " {icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "  {volume}% ",
+    "format-source-muted": "  ",
+    "format-icons": {
+      "headphone": "  ",
+      "hands-free": "  ",
+      "headset": "  ",
+      "phone": "  ",
+      "portable": "  ",
+      "car": "  ",
+      "default": ["  ", "  ", "  "]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "format-wifi": "{icon} {essid} ({signalStrength}%)",
+    "format-ethernet": "{icon} {ipaddr}/{cidr}",
+    "forman-icons": {
+      "wifi": "",
+      "ethernet": "",
+      "disconnected": "⚠"
+    },
+    "tooltip-format": "{icon} {ifname} via {gwaddr} ",
+    "format-linked": "{icon} {ifname} (No IP) ",
+    "format-disconnected": "{icon} Disconnected ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "tray": {
+    "icon-size": 22,
+    "spacing": 10
+  },
+
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/power_menu.sh"
+  }
+}

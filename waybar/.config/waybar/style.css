@@ -1,0 +1,80 @@
+/* Waybar CSS - Kanagawa Theme */
+
+* {
+  border: none;
+  border-radius: 6px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(30, 32, 48, 0.95); /* Kanagawa wave background */
+  color: #dcd7ba; /* Kanagawa fg */
+  padding: 0 8px;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  color: #7e9cd8; /* Blue */
+  background: transparent;
+}
+#workspaces button.active {
+  background: #223249;
+  color: #c8c093;
+  font-weight: bold;
+}
+#workspaces button.urgent {
+  background: #e46876;
+  color: #1f1f28;
+}
+
+#clock,
+#memory,
+#cpu,
+#temperature,
+#battery,
+#battery#bat2,
+#network,
+#pulseaudio,
+#tray,
+#custom-media,
+#custom-power,
+#custom-appmenu,
+#idle_inhibitor {
+  padding: 0 10px;
+  margin: 0 4px;
+  background: #1f1f28;
+  color: #dcd7ba;
+}
+
+#custom-power {
+  background: #e46876; /* red */
+  color: #1f1f28;
+}
+
+#custom-appmenu {
+  background: #7fb4ca; /* sky */
+  color: #1f1f28;
+}
+
+#pulseaudio.muted {
+  background: #54546d;
+  color: #1f1f28;
+}
+
+#temperature.critical {
+  background: #ff5d62;
+  color: #1f1f28;
+}
+
+#idle_inhibitor {
+  background: #957fb8;
+  color: #1f1f28;
+}
+
+#power-profiles-daemon {
+  background: #76946a;
+  color: #1f1f28;
+}
+

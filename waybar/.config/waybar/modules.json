@@ -1,0 +1,136 @@
+{
+  "custom/appmenu": {
+    "format": " 󰻀 ",
+    "rotate": 0,
+    "on-click": "~/.config/waybar/runwofi.sh"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "active": "",
+      "urgent": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "HDMI-A-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "clock": {
+    "format": " {:%H:%M:%S}",
+    "format-alt": " {:%A, %d. %B %Y  %R}",
+    "interval": 1,
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar-weeks-pos": "right",
+    "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
+    "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
+    "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
+    "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      },
+      "actions": {
+        "on-click": "mode",
+        "on-click-right": "toggle"
+      }
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true
+  },
+
+  "memory": {
+    "format": " {}%"
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "path": "/"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format-critical": "<span color='red'><b>{icon} {temperatureC}°C</b></span> ",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-good": "<span color='green'><b>{icon} {capacity}%</b></span>",
+    "format-warning": "<span color='yellow'><b>{icon} {capacity}%</b></span>",
+    "format-critical": " <span color='red'><b> {icon} {capacity}%</b></span>",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "battery#bat2": {
+    "bat": "BAT1",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-good": "<span color='green'><b>{icon} {capacity}%</b></span>",
+    "format-warning": "<span color='yellow'><b>{icon} {capacity}%</b></span>",
+    "format-critical": "<span color='red'><b>{icon} {capacity}%</b></span>",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "power-profiles-daemon": {
+    "format": " {icon} ",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  }
+}
