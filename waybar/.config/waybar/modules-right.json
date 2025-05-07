@@ -1,4 +1,5 @@
 {
+
   "custom/media": {
     "format": "{icon} {text}",
     "return-type": "json",
@@ -87,4 +88,5 @@
     "tooltip": false,
     "on-click": "~/.config/waybar/power_menu.sh"
   }
+
 }
