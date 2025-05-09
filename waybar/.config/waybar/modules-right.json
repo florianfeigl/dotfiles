@@ -79,12 +79,12 @@
   },
 
   "tray": {
-    "icon-size": 22,
+    "icon-size": 20,
     "spacing": 10
   },
 
   "custom/power": {
-    "format": "⏻ ",
+    "format": "⏻",
     "tooltip": false,
     "on-click": "~/.config/waybar/power_menu.sh"
   }

@@ -4,14 +4,13 @@
   border: none;
   border-radius: 6px;
   font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 13px;
-  min-height: 0;
+  font-size: 18px;
+  min-height: 30px;
 }
 
 window#waybar {
   background: rgba(30, 32, 48, 0.95); /* Kanagawa wave background */
   color: #dcd7ba; /* Kanagawa fg */
-  padding: 0 8px;
 }
 
 #workspaces button {
@@ -41,19 +40,21 @@ window#waybar {
 #custom-media,
 #custom-power,
 #custom-appmenu,
-#idle_inhibitor {
-  padding: 0 10px;
-  margin: 0 4px;
+#idle_inhibitor,
+#power-profiles-daemon {
+  min-width: 16px;
   background: #1f1f28;
   color: #dcd7ba;
 }
 
 #custom-power {
+  padding: 0 15px;
   background: #e46876; /* red */
   color: #1f1f28;
 }
 
 #custom-appmenu {
+  padding: 0 8px;
   background: #7fb4ca; /* sky */
   color: #1f1f28;
 }
@@ -69,12 +70,14 @@ window#waybar {
 }
 
 #idle_inhibitor {
+  padding: 0 8px;
+  min-width: 16px;
   background: #957fb8;
   color: #1f1f28;
 }
 
 #power-profiles-daemon {
+  padding: 0 8px;
   background: #76946a;
   color: #1f1f28;
 }
-

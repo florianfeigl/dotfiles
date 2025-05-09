@@ -1,39 +1,4 @@
 {
-  "custom/appmenu": {
-    "format": " 󰻀 ",
-    "rotate": 0,
-    "on-click": "~/.config/waybar/runwofi.sh"
-  },
-
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
-      "10": "",
-      "active": "",
-      "urgent": "",
-      "default": ""
-    },
-    "persistent-workspaces": {
-      "HDMI-A-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    }
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
 
   "clock": {
     "format": " {:%H:%M:%S}",
@@ -81,33 +46,15 @@
 
   "temperature": {
     "critical-threshold": 80,
-    "format-critical": "<span color='red'><b>{icon} {temperatureC}°C</b></span> ",
-    "format": "{icon} {temperatureC}°C",
+    "format": "{icon}{temperatureC}°C",
+    "format-critical": "<span color='red'><b>{icon} {temperatureC}°C</b></span>",
     "format-icons": ["", "", ""]
   },
 
   "battery": {
     "bat": "BAT0",
     "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-full": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    "format-good": "<span color='green'><b>{icon} {capacity}%</b></span>",
-    "format-warning": "<span color='yellow'><b>{icon} {capacity}%</b></span>",
-    "format-critical": " <span color='red'><b> {icon} {capacity}%</b></span>",
-    "format-icons": ["", "", "", "", ""]
-  },
-
-  "battery#bat2": {
-    "bat": "BAT1",
-    "states": {
-      "good": 95,
+      "good": 90,
       "warning": 30,
       "critical": 15
     },
@@ -122,15 +69,15 @@
     "format-icons": ["", "", "", "", ""]
   },
 
-  "power-profiles-daemon": {
-    "format": " {icon} ",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
+  "battery#bat2": {
+    "bat": "BAT1",
+    "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-alt": "{icon} {time}"
   }
+
 }
