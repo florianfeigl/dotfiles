@@ -1,73 +1,40 @@
 {
 
-  "custom/media": {
-    "format": "{icon} {text}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜"
-    },
-    "escape": true,
-    "exec": "~/.config/waybar/mediaplayer.py 2> /dev/null"
-  },
-
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
-  },
-
   "backlight": {
-    "format": "{icon} {percent}%",
+    "justify": "center",
+    "min-length": 6,
+    "format": "{icon} {percent}",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
   "pulseaudio": {
+    "justify": "center",
+    "min-length": 6,
     "scroll-step": 5, 
-    "format": " {icon} {volume}% {format_source}",
-    "format-bluetooth": " {icon} {volume}% {format_source}",
+    "format": "{icon} {volume} {format_source}",
+    "format-bluetooth": " {icon} {volume} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "  {volume}% ",
-    "format-source-muted": "  ",
+    "format-muted": " 00 {format_source}",
+    "format-source": " {volume}",
+    "format-source-muted": "00 {format_source}",
     "format-icons": {
-      "headphone": "  ",
-      "hands-free": "  ",
-      "headset": "  ",
-      "phone": "  ",
-      "portable": "  ",
-      "car": "  ",
-      "default": ["  ", "  ", "  "]
+      "headphone": "",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
   },
 
   "network": {
-    "format-wifi": "{icon} {essid} ({signalStrength}%)",
+    "justify": "center",
+    "min-length": 6,
+    "format-wifi": "{icon} {essid}",
     "format-ethernet": "{icon} {ipaddr}/{cidr}",
-    "forman-icons": {
+    "format-icons": {
       "wifi": "",
       "ethernet": "",
       "disconnected": "⚠"
@@ -79,8 +46,30 @@
   },
 
   "tray": {
-    "icon-size": 20,
-    "spacing": 10
+    "justify": "center",
+    "min-length": 20,
+    "icon-size": 24,
+    "spacing": 8
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   },
 
   "custom/power": {

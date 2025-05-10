@@ -1,8 +1,8 @@
 {
 
-  "layer": "top",
+  "layer": "bottom",
   "position": "top", 
-  "height": 30,
+  "height": 40,
   "spacing": 4,
 
   "margin-left": 4,
@@ -12,8 +12,8 @@
 
   "include": [ "~/.config/waybar/modules-center.json", "~/.config/waybar/modules-left.json", "~/.config/waybar/modules-right.json" ],
 
-  "modules-left": [ "clock", "cpu", "memory", "disk", "temperature", "battery", "battery#2" ],
-  "modules-center": [ "custom/appmenu", "power-profiles-daemon", "idle_inhibitor", "hyprland/workspaces" ],
-  "modules-right": [ "custom/media", "mpd", "backlight", "pulseaudio", "network", "tray", "custom/power" ]
+  "modules-left": [ "custom/appmenu", "clock", "cpu", "memory", "disk", "temperature", "battery", "battery#bat2" ],
+  "modules-center": [ "hyprland/workspaces" ],
+  "modules-right": [ "backlight", "pulseaudio", "network", "tray", "power-profiles-daemon", "idle_inhibitor", "custom/power" ]
 
 }
