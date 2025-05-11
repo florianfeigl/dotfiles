@@ -32,7 +32,6 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray,
-#custom-media,
 #custom-power,
 #custom-appmenu,
 #idle_inhibitor,
@@ -70,7 +69,11 @@ window#waybar {
 }
 
 #tray {
-  margin-right: 6px;
+  margin: 0 6px;
+}
+
+#pulseaudio {
+  margin: 0 6px;
 }
 
 #power-profiles-daemon {

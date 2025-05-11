@@ -1,10 +1,4 @@
 {
-  "custom/appmenu": {
-    "format": "󰻀",
-    "rotate": 0,
-    "on-click": "~/.config/waybar/runwofi.sh"
-  },
-
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {

@@ -41,7 +41,7 @@
     },
     "tooltip-format": "{icon} {ifname} via {gwaddr} ",
     "format-linked": "{icon} {ifname} (No IP) ",
-    "format-disconnected": "{icon} Disconnected ",
+    "format-disconnected": "{icon}",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
 

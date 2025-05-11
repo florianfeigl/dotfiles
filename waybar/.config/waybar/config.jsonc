@@ -14,6 +14,6 @@
 
   "modules-left": [ "custom/appmenu", "clock", "cpu", "memory", "disk", "temperature", "battery", "battery#bat2" ],
   "modules-center": [ "hyprland/workspaces" ],
-  "modules-right": [ "backlight", "pulseaudio", "network", "tray", "power-profiles-daemon", "idle_inhibitor", "custom/power" ]
+  "modules-right": [ "network", "tray", "backlight", "pulseaudio", "power-profiles-daemon", "idle_inhibitor", "custom/power" ]
 
 }
