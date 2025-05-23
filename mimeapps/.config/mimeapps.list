@@ -4,10 +4,10 @@ text/plain=nvim.desktop
 text/x-ascii=nvim.desktop
 text/x-tex=nvim.desktop
 image/jpeg=feh.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/chrome=firefox.desktop
-text/html=firefox.desktop
+text/html=brave-browser.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
@@ -15,6 +15,8 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
