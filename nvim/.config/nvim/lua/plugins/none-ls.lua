@@ -7,17 +7,25 @@ return {
 
 		null_ls.setup({
 			sources = {
+				-- Lua / Python / Web
 				null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.biome,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.gofmt,
-        null_ls.builtins.formatting.goimports,
-        null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.prettier,
-        --        null_ls.builtins.formatting.clangd,
---        null_ls.builtins.formatting.arduino_language_server,
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.isort,
 			},
 		})
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+
+		-- Format per Taste
+		vim.keymap.set("n", "<leader>gf", function()
+			vim.lsp.buf.format({ async = false })
+		end, { desc = "Format buffer" })
+
+		-- Format on save (empfohlen)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = { "*.lua", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" },
+			callback = function()
+				vim.lsp.buf.format({ async = false })
+			end,
+		})
 	end,
 }

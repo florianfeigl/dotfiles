@@ -7,7 +7,7 @@ return {
 		opts = {},
 		init = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 300
+			vim.o.timeoutlen = 600
 		end,
 		config = function()
 			local wk = require("which-key")

@@ -69,7 +69,7 @@ alias vi="nvim"
 alias cat="bat"
 
 # Exports
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+export PATH="$GOPATH/bin:$HOME/.tmux/plugins/tmuxifier/bin:$HOME/.cargo/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
 export TERMINAL="kitty"
 export TERM="kitty"
 export VISUAL="nvim"
