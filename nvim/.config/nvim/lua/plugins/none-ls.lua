@@ -22,7 +22,7 @@ return {
 
 		-- Format on save (empfohlen)
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = { "*.lua", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" },
+			pattern = { "*.go", "*.lua", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" },
 			callback = function()
 				vim.lsp.buf.format({ async = false })
 			end,
