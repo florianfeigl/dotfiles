@@ -149,8 +149,12 @@ fi
 if [[ -o login ]]; then
   if ! ssh-add -l >/dev/null 2>&1; then
     eval "$(ssh-agent -s)" >/dev/null
-    # Versuche Standard-Keys leise zu laden (falls vorhanden)
-    ssh-add -q ~/.ssh/id_ed25519 ~/.ssh/id_rsa 2>/dev/null
+    # Lade alle privaten Keys automatisch
+    for key in ~/.ssh/*; do
+      if [[ -f "$key" && ! "$key" =~ \.(pub|old)$ && ! "$key" =~ (config|known_hosts)$ ]]; then
+        ssh-add -q "$key" 2>/dev/null
+      fi
+    done
   fi
 fi
 
