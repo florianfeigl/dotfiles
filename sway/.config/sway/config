@@ -135,15 +135,15 @@ bindsym $mod+r mode "resize"
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 - Interface"
-set $ws2 "2 - Browsing"
-set $ws3 "3 - Terminal"
-set $ws4 "4 - Files"
-set $ws5 "5 - System Monitoring"
-set $ws6 "6 - Configuration"
-set $ws7 "7 - Timekeeping"
-set $ws8 "8 - Spare 1"
-set $ws9 "9 - Spare 2"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
 # Workspace assignments
 workspace $ws1 output DP-1
@@ -243,7 +243,7 @@ set $menu wofi --show drun  -i | xargs swaymsg exec --
 bindsym $mod+shift+b exec firefox
 
 # Open a file manager:
-bindsym ctrl+$mod+f exec ranger
+bindsym ctrl+$mod+f exec y
 
 # Open a terminal emulator:
 set $term alacritty
