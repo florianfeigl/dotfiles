@@ -27,7 +27,7 @@ window#waybar {
 #memory,
 #cpu,
 #temperature,
-#disk
+#disk,
 #battery,
 #network,
 #pulseaudio,

@@ -12,7 +12,7 @@
 
   "include": [ "~/.config/waybar/modules-center.json", "~/.config/waybar/modules-left.json", "~/.config/waybar/modules-right.json" ],
 
-  "modules-left": [ "custom/appmenu", "clock", "cpu", "memory", "disk", "temperature", "battery", "battery#bat2" ],
+  "modules-left": [ "custom/appmenu", "clock", "cpu", "memory", "disk", "temperature"],
   "modules-center": [ "hyprland/workspaces" ],
   "modules-right": [ "network", "tray", "backlight", "pulseaudio", "power-profiles-daemon", "idle_inhibitor", "custom/power" ]
 

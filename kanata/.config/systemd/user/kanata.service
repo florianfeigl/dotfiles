@@ -3,9 +3,9 @@ Description=Kanata keyboard remapper
 Documentation=https://github.com/jtroo/kanata
 
 [Service]
-Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/home/flori/.cargo/bin
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/home/feivel/.cargo/bin
 Type=simple
-ExecStart=/home/flori/.cargo/bin/kanata --cfg /home/flori/.config/kanata/config.kbd
+ExecStart=/home/feivel/.cargo/bin/kanata --cfg /home/feivel/.config/kanata/config.kbd
 Restart=no
 
 [Install]
