@@ -1,0 +1,81 @@
+{
+
+  "backlight": {
+    "justify": "center",
+    "min-length": 6,
+    "format": "{icon} {percent}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+    "justify": "center",
+    "min-length": 6,
+    "scroll-step": 5, 
+    "format": "{icon} {volume} {format_source}",
+    "format-bluetooth": " {icon} {volume} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " 00 {format_source}",
+    "format-source": " {volume}",
+    "format-source-muted": "00 {format_source}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "justify": "center",
+    "min-length": 6,
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "{icon} {ipaddr}/{cidr}",
+    "format-icons": {
+      "wifi": "",
+      "ethernet": "",
+      "disconnected": "⚠"
+    },
+    "tooltip-format": "{icon} {ifname} via {gwaddr} ",
+    "format-linked": "{icon} {ifname} (No IP) ",
+    "format-disconnected": "{icon}",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "tray": {
+    "justify": "center",
+    "min-length": 20,
+    "icon-size": 24,
+    "spacing": 8
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/power_menu.sh"
+  }
+
+}

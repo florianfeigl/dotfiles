@@ -1,0 +1,128 @@
+{
+  "custom/appmenu": {
+    "min-length": 3,
+    "format": "󰻀",
+    "rotate": 0,
+    "on-click": "wofi --show drun"
+  },
+
+  "clock": {
+    "format": " {:%H:%M:%S}",
+    "format-alt": " {:%A,%d.%B  %R}",
+    "interval": 1,
+    "justify": "left",
+    "align": 0,
+    "min-length": 11,
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar-weeks-pos": "right",
+    "today-format": "<span color='#e46876'><b><u>{}</u></b></span>", // Kanagawa red (peach)
+    "format-calendar": "<span color='#7fb4ca'><b>{}</b></span>",     // Kanagawa sky blue
+    "format-calendar-weeks": "<span color='#7e9cd8'><b>W{:%V}</b></span>", // Kanagawa iris
+    "format-calendar-weekdays": "<span color='#c8c093'><b>{}</b></span>", // Kanagawa fg alt
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#7fb4ca'><b>{}</b></span>",      // sky blue
+        "days": "<span color='#dcd7ba'><b>{}</b></span>",        // fg
+        "weeks": "<span color='#7e9cd8'><b>W{}</b></span>",      // iris
+        "weekdays": "<span color='#c8c093'><b>{}</b></span>",    // fg alt
+        "today": "<span color='#e46876'><b><u>{}</u></b></span>" // red
+      },
+      "actions": {
+        "on-click": "mode",
+        "on-click-right": "toggle"
+      }
+    }
+  },
+
+  "cpu": {
+    "states": {
+      "good": 70,
+      "warning": 75,
+      "critical": 90
+    },
+    "format": " {usage}",
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "tooltip": true
+  },
+
+  "memory": {
+    "states": {
+      "warning": 75, 
+      "critical": 90
+    },
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "format": " {}"
+  },
+
+  "disk": {
+    "path": "/",
+    "interval": 30,
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "states": {
+      "warning": 80,
+      "critical": 90
+    },
+    "format": " {percentage_used}",
+    "format-warning": " {percentage_used}",
+    "format-critical": " {percentage_used}"
+  },
+
+  "temperature": {
+    "states": {
+      "warning": 75,
+      "critical": 85
+    },
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "format": "{icon} {temperatureC}",
+    "format-warning": "{icon} {temperatureC}",
+    "format-critical": "{icon} {temperatureC}",
+    "format-icons": ["", "", ""]
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "good": 60,
+      "warning": 30,
+      "critical": 15
+    },
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "format": "{icon} {capacity}",
+    "format-full": "{icon} {capacity}",
+    "format-charging": " {capacity}",
+    "format-plugged": " {capacity}",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "battery#bat2": {
+    "bat": "BAT1",
+    "states": {
+      "good": 60,
+      "warning": 30,
+      "critical": 15
+    },
+    "justify": "left",
+    "align": 0,
+    "min-length": 5,
+    "format": " {icon} {capacity}",
+    "format-charging": " {capacity}",
+    "format-plugged": " {capacity}",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""]
+  }
+}

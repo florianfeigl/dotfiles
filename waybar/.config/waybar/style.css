@@ -1,0 +1,95 @@
+/* Waybar CSS - Kanagawa Theme */
+
+* {
+  border: none;
+  border-radius: 6px;
+  font-family: "JetBrainsMono Nerd Font Mono", FontAwesome, monospace;
+  font-size: 18px;
+  min-height: 30px;
+}
+
+window#waybar {
+  background: rgba(30, 32, 48, 0.95);
+  color: #dcd7ba;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  color: #7e9cd8;
+  background: transparent;
+}
+#workspaces button.urgent {
+  background: #e46876;
+  color: #1f1f28;
+}
+
+#clock,
+#memory,
+#cpu,
+#temperature,
+#disk
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#custom-power,
+#custom-appmenu,
+#idle_inhibitor,
+#power-profiles-daemon {
+  min-width: 42px;
+  background: #1f1f28;
+  color: #dcd7ba;
+}
+
+#cpu.good,
+#battery.good {
+  color: #7e9cd8;
+}
+
+#cpu.warning,
+#disk.warning,
+#memory.warning,
+#battery.warning,
+#temperature.warning {
+  color: #dca561;
+}
+
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#battery.critical,
+#temperature.critical {
+  color: #e46876;
+}
+
+#custom-appmenu {
+  margin-right: 6px;
+  background: #7fb4ca;
+  color: #1f1f28;
+}
+
+#tray {
+  margin: 0 6px;
+}
+
+#pulseaudio {
+  margin: 0 6px;
+}
+
+#power-profiles-daemon {
+  background: #76946a;
+  color: #1f1f28;
+}
+
+#idle_inhibitor {
+  background: #957fb8;
+  color: #1f1f28;
+}
+#idle_inhibitor.activated {
+  background: #dcd7ba;
+}
+
+#custom-power {
+  background: #e46876;
+  color: #1f1f28;
+}
