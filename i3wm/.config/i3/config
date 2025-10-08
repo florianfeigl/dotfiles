@@ -6,12 +6,12 @@ font pango:JetBrainsMono Nerd Font 12
 gaps inner 7 
 
 # Display configuration
-exec --no-startup-id xrandr --output DP-2 --rotate right
+exec --no-startup-id xrandr --output DP-6 --rotate right
 # Start XDG autostart 
 exec --no-startup-id dex --autostart --environment i3
 
 # Wallpaper restore
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-hd-wallpapers.jpg
+#exec_always feh --bg-fill $HOME/Pictures/Wallpapers/kanagawa-hd-wallpapers.jpg
 
 # The combination of xss-lock, nm-applet and pactl 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -94,16 +94,16 @@ set $ws8 "8:1000"
 set $ws9 "9:1001" 
 set $ws10 "10:1010" 
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
-workspace $ws6 output DP-2
-workspace $ws7 output DP-2
-workspace $ws8 output DP-2
-workspace $ws9 output DP-2
-workspace $ws10 output DP-2
+workspace $ws1 output DP-7
+workspace $ws2 output DP-7
+workspace $ws3 output DP-7
+workspace $ws4 output DP-7
+workspace $ws5 output DP-7
+workspace $ws6 output DP-6
+workspace $ws7 output DP-6
+workspace $ws8 output DP-6
+workspace $ws9 output DP-6
+workspace $ws10 output eDP-1
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
