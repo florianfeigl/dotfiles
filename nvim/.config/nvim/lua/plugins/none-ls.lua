@@ -1,31 +1,31 @@
 -- plugins/none-ls.lua
 
 return {
-  "nvimtools/none-ls.nvim",
-  config = function()
-    local null_ls = require("null-ls")
+	"nvimtools/none-ls.nvim",
+	config = function()
+		local null_ls = require("null-ls")
 
-    null_ls.setup({
-      sources = {
-        -- Lua / Python / Web
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
-      },
-    })
+		null_ls.setup({
+			sources = {
+				-- Lua / Python / Web
+				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.isort,
+			},
+		})
 
-    -- Format per Taste
-    vim.keymap.set("n", "<leader>gf", function()
-      vim.lsp.buf.format({ async = false })
-    end, { desc = "Format buffer" })
+		-- Format per Taste
+		vim.keymap.set("n", "<leader>gf", function()
+			vim.lsp.buf.format({ async = false })
+		end, { desc = "Format buffer" })
 
-    -- Format on save (empfohlen)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.go", "*.lua", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" },
-      callback = function()
-        vim.lsp.buf.format({ async = false })
-      end,
-    })
-  end,
+		-- Format on save (empfohlen)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = { "*.go", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" }, -- "*.lua",
+			callback = function()
+				vim.lsp.buf.format({ async = false })
+			end,
+		})
+	end,
 }
