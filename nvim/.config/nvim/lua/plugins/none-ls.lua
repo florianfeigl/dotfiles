@@ -15,11 +15,6 @@ return {
 			},
 		})
 
-		-- Format per Taste
-		vim.keymap.set("n", "<leader>gf", function()
-			vim.lsp.buf.format({ async = false })
-		end, { desc = "Format buffer" })
-
 		-- Format on save (empfohlen)
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = { "*.go", "*.lua", "*.py", "*.ts", "*.js", "*.tsx", "*.jsx" },

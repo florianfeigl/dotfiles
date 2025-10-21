@@ -8,6 +8,7 @@ return {
     config = function()
       -- Leader sehr früh (wichtig für <leader>…)
       vim.g.mapleader = " "
+      vim.g.maplocalleader = " "
 
       -- Indentation & Numbers
       vim.opt.expandtab = true

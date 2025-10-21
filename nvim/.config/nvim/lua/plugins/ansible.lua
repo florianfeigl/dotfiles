@@ -3,9 +3,31 @@ return {
     "arouene/vim-ansible-vault",
     ft = { "yaml", "ansible" },
     config = function()
-      --      vim.g.vault_password_file = "~/.vault_pass.txt"
-      vim.keymap.set("n", "<leader>av", ":AnsibleVault<CR>", { desc = "Encrypt vault" })
-      vim.keymap.set("n", "<leader>au", ":AnsibleUnvault<CR>", { desc = "Decrypt vault" })
+      local ok, wk = pcall(require, "which-key")
+      if not ok then
+        return
+      end
+
+      local password_file = vim.fn.expand("~/.vault_password")
+      vim.g.ansible_vault_password_file = password_file
+      vim.env.ANSIBLE_VAULT_PASSWORD_FILE = password_file
+
+      local function register(buf)
+        wk.add({
+          { "<leader>av", "<cmd>AnsibleVault<CR>", desc = "Encrypt vault" },
+          { "<leader>au", "<cmd>AnsibleUnvault<CR>", desc = "Decrypt vault" },
+        }, { buffer = buf })
+      end
+
+      register(vim.api.nvim_get_current_buf())
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("AnsibleVaultWhichKey", { clear = true }),
+        pattern = { "yaml", "ansible" },
+        callback = function(args)
+          register(args.buf)
+        end,
+      })
     end,
   },
 }
