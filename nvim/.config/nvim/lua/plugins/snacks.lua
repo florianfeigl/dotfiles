@@ -154,6 +154,13 @@ return {
 			mode = { "n", "t" },
 		},
 		{
+			"<leader>V",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File Explorer",
+		},
+		{
 			"<leader>N",
 			desc = "Neovim News",
 			function()

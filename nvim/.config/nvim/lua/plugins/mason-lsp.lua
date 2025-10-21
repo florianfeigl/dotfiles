@@ -1,16 +1,20 @@
--- plugins/mason-lsp-config.lua
+-- ~/.config/nvim/lua/plugins/mason-lsp.lua
 return {
-  -- Mason
+  ---------------------------------------------------------------------------
+  -- Mason core
+  ---------------------------------------------------------------------------
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    lazy = false,
+    opts = {},
   },
 
-  -- Mason-LSPconfig
+  ---------------------------------------------------------------------------
+  -- Mason‑LSPconfig (auto‑installs language servers)
+  ---------------------------------------------------------------------------
   {
     "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -20,31 +24,98 @@ return {
           "rust_analyzer",
           "html",
           "cssls",
-          "sqlls",
-          "arduino_language_server",
-          "ansible-lint",
-          -- "clangd",
+          "sqls",
+          "ansiblels",
         },
         automatic_installation = true,
       })
     end,
   },
 
-  -- lspconfig
+  ---------------------------------------------------------------------------
+  -- Core LSP setup, using vim.lsp.config (Neovim ≥ 0.11)
+  ---------------------------------------------------------------------------
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
-      local lspconfig = require("lspconfig")
       local util = require("lspconfig.util")
 
-      -- Capabilities (nvim-cmp optional)
+      -- nvim‑cmp capabilities
       local ok_cmp, cmp_caps = pcall(require, "cmp_nvim_lsp")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       if ok_cmp then
         capabilities = cmp_caps.default_capabilities(capabilities)
       end
 
-      -- Smart formatter: Lua bevorzugt null-ls (Stylua)
+      -----------------------------------------------------------------------
+      -- gopls
+      -----------------------------------------------------------------------
+      local function go_module_path(dir)
+        local gomod = util.path.join(dir, "go.mod")
+        local f = io.open(gomod, "r")
+        if not f then
+          return nil
+        end
+        local content = f:read("*a")
+        f:close()
+        return content:match("^module%s+([%w%p%-_/%.]+)")
+      end
+
+      vim.lsp.config.gopls = {
+        capabilities = capabilities,
+        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = { gofumpt = true, staticcheck = true },
+        },
+        on_new_config = function(cfg, root)
+          local mod = go_module_path(root or "")
+          if mod then
+            cfg.settings = cfg.settings or {}
+            cfg.settings.gopls = cfg.settings.gopls or {}
+            cfg.settings.gopls["formatting.local"] = mod
+          end
+        end,
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format({ async = false, name = "gopls" })
+            end,
+          })
+        end,
+      }
+
+      -----------------------------------------------------------------------
+      -- Other servers
+      -----------------------------------------------------------------------
+      local servers = {
+        lua_ls = {
+          capabilities = capabilities,
+          settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+        },
+        pyright = { capabilities = capabilities },
+        rust_analyzer = { capabilities = capabilities },
+        html = { capabilities = capabilities },
+        cssls = { capabilities = capabilities },
+        sqls = { capabilities = capabilities },
+        ansiblels = { capabilities = capabilities },
+      }
+      for name, conf in pairs(servers) do
+        vim.lsp.config[name] = conf
+      end
+
+      -----------------------------------------------------------------------
+      -- Enable all configured servers
+      -----------------------------------------------------------------------
+      for name in pairs(servers) do
+        pcall(vim.lsp.enable, name)
+      end
+      pcall(vim.lsp.enable, "gopls")
+
+      -----------------------------------------------------------------------
+      -- Utility: smart formatter and keymaps
+      -----------------------------------------------------------------------
       local function format_smart()
         vim.lsp.buf.format({
           async = false,
@@ -57,149 +128,32 @@ return {
         })
       end
 
-      -- Modulpfad aus go.mod (für gopls formatting.local)
-      local function go_module_path(dir)
-        local gomod = util.path.join(dir, "go.mod")
-        local f = io.open(gomod, "r")
-        if not f then
-          return nil
-        end
-        local content = f:read("*a")
-        f:close()
-        return content:match("^module%s+([%w%p%-_/%.]+)")
-      end
-
-      -- ===== gopls =====
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            gofumpt = true,
-            staticcheck = true,
-            analyses = {
-              nilness = true,
-              unusedparams = true,
-              unusedwrite = true,
-              useany = true,
-            },
-            codelenses = {
-              gc_details = false,
-              generate = true,
-              regenerate_cgo = true,
-              run_govulncheck = true,
-              test = true,
-              tidy = true,
-              upgrade_dependency = true,
-              vendor = true,
-            },
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-            completeUnimported = true,
-            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-          },
-        },
-        on_new_config = function(new_config, new_root_dir)
-          local mod = go_module_path(new_root_dir or "")
-          if mod then
-            new_config.settings = new_config.settings or {}
-            new_config.settings.gopls = new_config.settings.gopls or {}
-            new_config.settings.gopls["formatting.local"] = mod
-          end
-        end,
-        on_attach = function(client, bufnr)
-          -- Semantic tokens fallback (ohne LazyVim)
-          if not client.server_capabilities.semanticTokensProvider then
-            local caps = client.config
-                and client.config.capabilities
-                and client.config.capabilities.textDocument
-                and client.config.capabilities.textDocument.semanticTokens
-            if caps then
-              client.server_capabilities.semanticTokensProvider = {
-                full = true,
-                legend = {
-                  tokenTypes = caps.tokenTypes or {},
-                  tokenModifiers = caps.tokenModifiers or {},
-                },
-                range = true,
-              }
-            end
-          end
-
-          -- Go: Format on save via gopls
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({ async = false, name = "gopls" })
-            end,
-          })
-        end,
-      })
-
-      -- ===== übrige Server =====
-      local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = { globals = { "vim" } },
-            },
-          },
-        },
-        pyright = {},
-        rust_analyzer = {},
-        html = {},
-        cssls = {},
-        sqlls = {},
-        arduino_language_server = {},
-        ansiblels = {},
-        -- clangd = {},
-      }
-      for name, opts in pairs(servers) do
-        opts.capabilities = capabilities
-        lspconfig[name].setup(opts)
-      end
-
-      -- ===== Globale Diagnostics-Keymaps =====
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
       vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
-      -- ===== Buffer-lokale LSP-Keymaps =====
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-          local opts = { buffer = ev.buf, silent = true }
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-          vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, opts)
-          vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
-          vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
-          -- Einheitliches Format-Shortcut
+          local o = { buffer = ev.buf, silent = true }
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, o)
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, o)
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, o)
+          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, o)
+          vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, o)
+          vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, o)
+          vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, o)
+          vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, o)
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, o)
+          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, o)
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, o)
           vim.keymap.set(
             "n",
             "<leader>fF",
             format_smart,
-            vim.tbl_extend("force", opts, { desc = "Format File" })
+            vim.tbl_extend("force", o, { desc = "Format File" })
           )
         end,
       })
