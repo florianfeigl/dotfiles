@@ -15,6 +15,7 @@ return {
 		quickfile = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+		terminal = { enabled = true },
 		explorer = {
 			enabled = true,
 			width = 40,
