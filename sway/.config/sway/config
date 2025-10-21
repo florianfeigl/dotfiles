@@ -10,8 +10,6 @@
 # pressing Super + Shift + C.                                                      #
 #==================================================================================#
 
-# Display Setup
-
 #========================#
 # Appearance and Theming #
 #========================#
@@ -44,8 +42,13 @@ output * bg $HOME/.config/sway/wallpaper.jpg fill
 #==================#
 # Display Settings #
 #==================#
+# Stabile Bezeichner
+set $DELL "Dell Inc. DELL U2713HM GK0KD2BT751L"
+set $HP   "HP Inc. HP E243i CNK94409WF"
+set $LAP  "Chimei Innolux Corporation 0x1638 Unknown"
+
 # Dell links (Haupt)
-output "Dell Inc. DELL U2713HM GK0KD2BT751L" {
+output $DELL {
     mode 2560x1440@60Hz
     position 0,0
     scale 1
@@ -53,7 +56,7 @@ output "Dell Inc. DELL U2713HM GK0KD2BT751L" {
 }
 
 # HP (rechts, hochkant)
-output "HP Inc. HP E243i CNK94409WF" {
+output $HP {
     mode 1920x1200@60Hz
     transform 90
     position 2560,0        
@@ -61,7 +64,7 @@ output "HP Inc. HP E243i CNK94409WF" {
 }
 
 # Interner Laptop-Bildschirm rechts vom HP
-output "Chimei Innolux Corporation 0x1638 Unknown" {
+output $LAP {
     mode 1920x1200@60Hz
     position 3760,0         
     scale 1
@@ -83,16 +86,21 @@ input * xkb_layout de
 #====================================#
 # Set the waybar command for the application launcher:
 bar {
-#  swaybar_command waybar
-  position top
-  font pango:JetBrainsMono Nerd Font 14
-  workspace_buttons yes
-  binding_mode_indicator yes
-  tray_output primary
-  tray_padding 3
-  status_command i3status
-}
+    position top
+    font pango:JetBrainsMono Nerd Font 14
+    gaps 4
+    workspace_min_width 64
+    tray_padding 8
 
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+    }
+}
 
 #====================================#
 # Keyboard Shortcuts (Sway-specific) #
@@ -110,12 +118,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec $HOME/.config/sway/exit.sh
 
 # Screen locking (automatic, with a timeout)
-set $lock swaylock -c 550000
 exec swayidle -w \
-    timeout 600 $lock \
-    timeout 570 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 
 # Screen locking (manual)
 set $lock_screen exec bash ~/.config/sway/lock_screen.sh
@@ -158,24 +164,17 @@ bindsym $mod+r mode "resize"
 #=================================#
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
-# Set up workspaces
-exec_always --no-startup-id bash -lc '\
-for i in 1 2 3 4 5; do swaymsg "workspace number $i, move workspace to output DP-7"; done; \
-for i in 6 7 8 9; do swaymsg "workspace number $i, move workspace to output DP-6"; done; \
-swaymsg "workspace number 10, move workspace to output eDP-1"; sleep 0.3; swaymsg "workspace number 1" \
-'
-
 # Workspace assignments
-workspace 1 output DP-7
-workspace 2 output DP-7
-workspace 3 output DP-7
-workspace 4 output DP-7
-workspace 5 output DP-7
-workspace 6 output DP-6
-workspace 7 output DP-6
-workspace 8 output DP-6
-workspace 9 output DP-6
-workspace 10 output eDP-1
+workspace 1  output $DELL
+workspace 2  output $DELL
+workspace 3  output $DELL
+workspace 4  output $DELL
+workspace 5  output $DELL
+workspace 6  output $HP
+workspace 7  output $HP
+workspace 8  output $HP
+workspace 9  output $HP
+workspace 10 output $LAP
 
 # Move between workspaces
 bindsym $mod+1 workspace 1
@@ -285,4 +284,3 @@ bindsym $mod+Shift+r exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot-$
 #======#
 include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*
-
