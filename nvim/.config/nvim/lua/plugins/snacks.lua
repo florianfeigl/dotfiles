@@ -15,6 +15,35 @@ return {
 		quickfile = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+		explorer = {
+			enabled = true,
+			width = 40,
+			side = "left",
+			-- extra options: theme, hide_dotfiles, etc.
+		},
+
+		image = {
+			enabled = true,
+			backend = "kitty",
+			max_width = 800,
+		},
+
+		input = {
+			enabled = true,
+			-- you can override border style, icons, etc.
+		},
+
+		lazygit = { enabled = true },
+
+		picker = {
+			enabled = true,
+			-- choose backend: "telescope", "fzf-lua", or Snacks' native picker
+			backend = "telescope",
+			layout = "vertical",
+		},
+
+		scope = { enabled = true },
+		scroll = { enabled = true },
 		styles = {
 			notification = {
 				wo = { wrap = true }, -- Wrap notifications
