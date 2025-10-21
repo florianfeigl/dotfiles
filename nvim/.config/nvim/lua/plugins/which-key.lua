@@ -53,17 +53,19 @@ return {
           { "<leader>fr", "<cmd>Telescope oldfiles<CR>",   desc = "Open Recent File", remap = true },
           { "<leader>s",  group = "snapshot" },
           { "<leader>t",  group = "terminal" },
-          "<leader>tt",
-          function()
-            Snacks.terminal()
-          end,
-          desc = "Toggle Terminal",
+          {
+            "<leader>tt",
+            function()
+              Snacks.terminal()
+            end,
+            desc = "Toggle Terminal",
+          },
+          { "<leader>w",  group = "window" },
+          { "<leader>wh", "<cmd>split<CR>",   desc = "Horizontal Split" },
+          { "<leader>wv", "<cmd>vsplit<CR>",  desc = "Vertical Split" },
+          { "<leader>ww", "<cmd>close<CR>",   desc = "Close Window" },
+          { "<leader>sc", "<cmd>Silicon<CR>", desc = "Snapshot Code",   mode = "v" },
         },
-        { "<leader>w",  group = "window" },
-        { "<leader>wh", "<cmd>split<CR>",   desc = "Horizontal Split" },
-        { "<leader>wv", "<cmd>vsplit<CR>",  desc = "Vertical Split" },
-        { "<leader>ww", "<cmd>close<CR>",   desc = "Close Window" },
-        { "<leader>sc", "<cmd>Silicon<CR>", desc = "Snapshot Code",   mode = "v" },
       })
     end,
   },
