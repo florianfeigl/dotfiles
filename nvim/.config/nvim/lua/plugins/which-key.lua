@@ -31,16 +31,21 @@ return {
           spacing = 3,
           align = "left",
         },
+        delay = function(ctx)
+          if ctx.plugin then
+            return 0
+          end
+          if ctx.keys == "<leader>" or ctx.keys == "<localleader>" then
+            return 0
+          end
+          return 200
+        end,
         show_help = true,
         triggers = {
           { "<leader>", mode = "n" },
           { "<leader>", mode = "v" },
           { "<localleader>", mode = "n" },
           { "<localleader>", mode = "v" },
-        },
-        triggers_nowait = {
-          { "<leader>", mode = "n" },
-          { "<leader>", mode = "v" },
         },
       })
 
@@ -336,5 +341,33 @@ return {
   {
     "nvim-mini/mini.nvim",
     version = "*",
+    config = function()
+      local comment = require("mini.comment")
+      comment.setup({
+        mappings = {
+          comment = "gc",
+          comment_visual = "gc",
+          comment_line = "",
+          textobject = "gc",
+        },
+      })
+
+      vim.keymap.set(
+        "n",
+        "<leader>/",
+        function()
+          return comment.operator() .. "_"
+        end,
+        { expr = true, desc = "Toggle Line Comment" }
+      )
+      vim.keymap.set(
+        "x",
+        "<leader>/",
+        function()
+          return comment.operator()
+        end,
+        { expr = true, desc = "Toggle Comment Selection" }
+      )
+    end,
   },
 }
