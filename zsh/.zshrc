@@ -83,6 +83,7 @@ source <(fzf --zsh)
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' show-group full
+export FZF_COMPLETION_TRIGGER='**'
 
 ##### ────── Zoxide (ohne cd-Override) ────────────────────────────────────────
 # Installiere zoxide ideal via Paketmanager (Debian/Ubuntu: apt install zoxide)
