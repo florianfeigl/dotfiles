@@ -19,6 +19,7 @@ path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
+  "$HOME/.opencode/bin"
   "/opt/nvim-linux-x86_64/bin"
   "/usr/local/sbin"
   "/usr/local/bin"
