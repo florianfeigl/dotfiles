@@ -1,6 +1,7 @@
-sway 
-pavucontrol
-swayidle 
-swaylock 
-waybar 
+sway
+swayidle
+swaylock
+waybar
 wofi
+pavucontrol
+xdg-desktop-portal-wlr

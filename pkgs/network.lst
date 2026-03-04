@@ -1,5 +1,4 @@
-netcat
-network-manager-applet
 networkmanager
-nginx 
+network-manager-applet
+nmap
 wireshark-cli

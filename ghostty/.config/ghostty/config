@@ -1,4 +1,28 @@
-theme = "Kanagawa Dragon"
-font-family = "JetBrainsMono Nerd Font"
-font-size = "16"
-window-decoration = "false"
+# Ghostty Configuration
+
+# Theme
+theme = catppuccin-mocha
+
+# Font
+font-family = MesloLGS Nerd Font Mono
+font-size = 16
+
+# Window
+window-decoration = false
+window-padding-x = 3
+window-padding-y = 3
+background-opacity = 0.95
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Clipboard
+copy-on-select = clipboard
+mouse-hide-while-typing = true
+
+# Scrollback
+scrollback-limit = 10000000
+
+# Keybindings
+keybind = ctrl+shift+enter=new_window

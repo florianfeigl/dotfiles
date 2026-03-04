@@ -1,5 +1,47 @@
-key_bindings:
-  - { key: Home,   chars: "\x1b[H" }
-  - { key: End,    chars: "\x1b[F" }
-  - { key: Insert, chars: "\x1b[2~" }
-  - { key: Delete, chars: "\x1b[3~" }
+# Alacritty Configuration (TOML)
+
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml",
+]
+live_config_reload = true
+
+[window]
+padding = { x = 3, y = 3 }
+decorations = "None"
+dynamic_padding = true
+opacity = 0.95
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "MesloLGS Nerd Font Mono"
+style = "Regular"
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
+
+[[keyboard.bindings]]
+key = "Home"
+chars = "\u001b[H"
+
+[[keyboard.bindings]]
+key = "End"
+chars = "\u001b[F"
+
+[[keyboard.bindings]]
+key = "Insert"
+chars = "\u001b[2~"
+
+[[keyboard.bindings]]
+key = "Delete"
+chars = "\u001b[3~"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control|Shift"
+action = "SpawnNewInstance"

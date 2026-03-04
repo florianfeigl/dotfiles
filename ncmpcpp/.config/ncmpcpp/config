@@ -21,12 +21,8 @@ random_exclude_pattern = "^(temp|midi_songs).*"
 
 ##### music visualizer #####
 ##
-audio_output {
-       type            "fifo"
-       name            "Visualizer feed"
-       path            "/tmp/mpd.fifo"
-       format          "44100:16:2"
-}
+## Note: The audio_output block belongs in mpd.conf, not here.
+## Make sure mpd.conf has a FIFO output with the path below.
 
 visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = Visualizer feed
@@ -439,18 +435,18 @@ lyrics_fetchers = tags, genius, tekstowo, plyrics, justsomelyrics, jahlyrics, ze
 #
 colors_enabled = yes
 empty_tag_color = cyan
-header_window_color = default
-volume_color = default
-state_line_color = default
-state_flags_color = default:b
-main_window_color = yellow
+header_window_color = blue
+volume_color = green
+state_line_color = magenta
+state_flags_color = magenta:b
+main_window_color = white
 color1 = white
-color2 = green
+color2 = blue
 progressbar_color = black:b
-progressbar_elapsed_color = green:b
-statusbar_color = default
-statusbar_time_color = default:b
-player_state_color = default:b
+progressbar_elapsed_color = magenta:b
+statusbar_color = white
+statusbar_time_color = white:b
+player_state_color = magenta:b
 alternative_ui_separator_color = black:b
-window_border_color = green
-active_window_border = red
+window_border_color = magenta
+active_window_border = blue

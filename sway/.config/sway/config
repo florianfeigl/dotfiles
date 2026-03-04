@@ -14,12 +14,12 @@
 # Appearance and Theming #
 #========================#
 # Declare Colors:
-set $background            #1f1f28
-set $color_urgent          #c34043
-set $text_color            #dcd7ba
-set $title_bg_unfocused    #2a2a37
-set $title_outline_active  #76946a
-set $title_outline_unfocused #1f1f28
+set $background            #1e1e2e
+set $color_urgent          #f38ba8
+set $text_color            #cdd6f4
+set $title_bg_unfocused    #181825
+set $title_outline_active  #cba6f7
+set $title_outline_unfocused #1e1e2e
 
 # Set Colors:           Border                   Background          Text          Indicator             Child Border
 client.background       $background

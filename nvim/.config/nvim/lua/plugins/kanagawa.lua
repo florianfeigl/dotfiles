@@ -1,8 +1,14 @@
--- plugins/kanagawa.lua
+-- plugins/catppuccin.lua
 
 return {
-	"rebelot/kanagawa.nvim",
-	config = function()
-		vim.cmd("colorscheme kanagawa")
-	end,
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		priority = 1000,
+		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({})
+			vim.cmd.colorscheme("catppuccin")
+		end,
+	},
 }
