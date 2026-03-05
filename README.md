@@ -13,7 +13,6 @@ stow --target=$HOME <package>
 | Package | Description |
 |---------|-------------|
 | `alacritty` | GPU-accelerated terminal emulator (TOML config) |
-| `environment.d` | GTK theme, cursor, icon environment variables |
 | `ghostty` | Ghostty terminal emulator (Catppuccin Macchiato) |
 | `hyprland` | Hyprland compositor + waybar + hypridle/hyprlock |
 | `kanata` | Keyboard remapper (CapsLock->Esc/Ctrl, home row mods) |
@@ -30,13 +29,9 @@ stow --target=$HOME <package>
 | `yazi` | Terminal file manager (Catppuccin Macchiato) |
 | `zsh` | Zsh + zinit + Starship prompt |
 
-## Non-stow directories
+## Related
 
-| Directory | Description |
-|-----------|-------------|
-| `pkgs/` | Package lists for Arch Linux (base, fonts, hyprland, kde, latex, media, network, productivity, sound, sway) |
-| `scripts/` | Utility scripts (brightness, volume) |
-| `sddm/` | SDDM login theme (install to `/usr/share/sddm/themes/`) |
+- [cloud-init](https://github.com/florianfeigl/cloud-init) -- Machine provisioning (package lists, cloud-init configs, SDDM theme)
 
 ## Theme
 
