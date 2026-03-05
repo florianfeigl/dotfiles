@@ -1,4 +1,4 @@
-/* Waybar CSS - Catppuccin Mocha */
+/* Waybar CSS - Catppuccin Macchiato */
 
 * {
   border: none;
@@ -9,18 +9,18 @@
 }
 
 window#waybar {
-  background: rgba(30, 30, 46, 0.95);
-  color: #cdd6f4;
+  background: rgba(36, 39, 58, 0.95);
+  color: #cad3f5;
 }
 
 #workspaces button {
   padding: 0 6px;
-  color: #89b4fa;
+  color: #8aadf4;
   background: transparent;
 }
 #workspaces button.urgent {
-  background: #f38ba8;
-  color: #1e1e2e;
+  background: #ed8796;
+  color: #24273a;
 }
 
 #clock,
@@ -37,13 +37,13 @@ window#waybar {
 #idle_inhibitor,
 #power-profiles-daemon {
   min-width: 42px;
-  background: #1e1e2e;
-  color: #cdd6f4;
+  background: #24273a;
+  color: #cad3f5;
 }
 
 #cpu.good,
 #battery.good {
-  color: #89b4fa;
+  color: #8aadf4;
 }
 
 #cpu.warning,
@@ -51,7 +51,7 @@ window#waybar {
 #memory.warning,
 #battery.warning,
 #temperature.warning {
-  color: #f9e2af;
+  color: #eed49f;
 }
 
 #cpu.critical,
@@ -59,13 +59,13 @@ window#waybar {
 #memory.critical,
 #battery.critical,
 #temperature.critical {
-  color: #f38ba8;
+  color: #ed8796;
 }
 
 #custom-appmenu {
   margin-right: 6px;
-  background: #74c7ec;
-  color: #1e1e2e;
+  background: #7dc4e4;
+  color: #24273a;
 }
 
 #tray {
@@ -77,19 +77,19 @@ window#waybar {
 }
 
 #power-profiles-daemon {
-  background: #a6e3a1;
-  color: #1e1e2e;
+  background: #a6da95;
+  color: #24273a;
 }
 
 #idle_inhibitor {
-  background: #cba6f7;
-  color: #1e1e2e;
+  background: #c6a0f6;
+  color: #24273a;
 }
 #idle_inhibitor.activated {
-  background: #cdd6f4;
+  background: #cad3f5;
 }
 
 #custom-power {
-  background: #f38ba8;
-  color: #1e1e2e;
+  background: #ed8796;
+  color: #24273a;
 }

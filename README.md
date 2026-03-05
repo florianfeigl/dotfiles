@@ -14,20 +14,20 @@ stow --target=$HOME <package>
 |---------|-------------|
 | `alacritty` | GPU-accelerated terminal emulator (TOML config) |
 | `environment.d` | GTK theme, cursor, icon environment variables |
-| `ghostty` | Ghostty terminal emulator (Catppuccin Mocha) |
+| `ghostty` | Ghostty terminal emulator (Catppuccin Macchiato) |
 | `hyprland` | Hyprland compositor + waybar + hypridle/hyprlock |
 | `kanata` | Keyboard remapper (CapsLock->Esc/Ctrl, home row mods) |
-| `kitty` | Kitty terminal emulator (Catppuccin Mocha) |
+| `kitty` | Kitty terminal emulator (Catppuccin Macchiato) |
 | `mimeapps` | Default application associations |
 | `mpd` | Music Player Daemon (PipeWire + FIFO visualizer) |
 | `ncmpcpp` | MPD client with spectrum visualizer |
-| `nvim` | Neovim (Lazy.nvim, LSP, Treesitter, Catppuccin Mocha) |
+| `nvim` | Neovim (Lazy.nvim, LSP, Treesitter, Catppuccin Macchiato) |
 | `sway` | Sway compositor (Debian workstations) |
 | `tmux` | Terminal multiplexer (TPM, vim-tmux-navigator) |
 | `vim` | Minimal vimrc fallback |
 | `weechat` | IRC client (secrets managed via pass) |
 | `wofi` | Wayland application launcher |
-| `yazi` | Terminal file manager (Catppuccin Mocha) |
+| `yazi` | Terminal file manager (Catppuccin Macchiato) |
 | `zsh` | Zsh + zinit + Starship prompt |
 
 ## Non-stow directories
@@ -40,7 +40,7 @@ stow --target=$HOME <package>
 
 ## Theme
 
-[Catppuccin Mocha](https://github.com/catppuccin/catppuccin) across all applications (terminals, neovim, waybar, wofi, sway, yazi). Font: MesloLGS Nerd Font Mono.
+[Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) across all applications (terminals, neovim, waybar, wofi, sway, yazi). Font: MesloLGS Nerd Font Mono.
 
 ## mpd + ncmpcpp
 

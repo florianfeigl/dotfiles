@@ -7,7 +7,7 @@ return {
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				-- configurations
+				flavour = "macchiato",
 			})
 		end,
 	},

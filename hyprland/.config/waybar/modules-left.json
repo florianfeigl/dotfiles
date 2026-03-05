@@ -15,21 +15,21 @@
     "min-length": 11,
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar-weeks-pos": "right",
-    "today-format": "<span color='#e46876'><b><u>{}</u></b></span>", // Kanagawa red (peach)
-    "format-calendar": "<span color='#7fb4ca'><b>{}</b></span>",     // Kanagawa sky blue
-    "format-calendar-weeks": "<span color='#7e9cd8'><b>W{:%V}</b></span>", // Kanagawa iris
-    "format-calendar-weekdays": "<span color='#c8c093'><b>{}</b></span>", // Kanagawa fg alt
+    "today-format": "<span color='#ed8796'><b><u>{}</u></b></span>", // Catppuccin Red
+    "format-calendar": "<span color='#91d7e3'><b>{}</b></span>",     // Catppuccin Sky
+    "format-calendar-weeks": "<span color='#c6a0f6'><b>W{:%V}</b></span>", // Catppuccin Mauve
+    "format-calendar-weekdays": "<span color='#a5adcb'><b>{}</b></span>", // Catppuccin Subtext0
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#7fb4ca'><b>{}</b></span>",      // sky blue
-        "days": "<span color='#dcd7ba'><b>{}</b></span>",        // fg
-        "weeks": "<span color='#7e9cd8'><b>W{}</b></span>",      // iris
-        "weekdays": "<span color='#c8c093'><b>{}</b></span>",    // fg alt
-        "today": "<span color='#e46876'><b><u>{}</u></b></span>" // red
+        "months": "<span color='#91d7e3'><b>{}</b></span>",      // Sky
+        "days": "<span color='#cad3f5'><b>{}</b></span>",        // Text
+        "weeks": "<span color='#c6a0f6'><b>W{}</b></span>",      // Mauve
+        "weekdays": "<span color='#a5adcb'><b>{}</b></span>",    // Subtext0
+        "today": "<span color='#ed8796'><b><u>{}</u></b></span>" // Red
       },
       "actions": {
         "on-click": "mode",
