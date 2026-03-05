@@ -1,0 +1,18 @@
+# Repo metadata -- do not deploy to $HOME
+README.md
+LICENSE
+.git/
+.gitignore
+.opencode/
+migrate.sh
+
+# Distro-specific: Hyprland + Waybar only on Arch
+{{ if ne .chezmoi.osRelease.id "arch" }}
+dot_config/hypr/
+dot_config/waybar/
+{{ end }}
+
+# Distro-specific: Sway only on Debian
+{{ if ne .chezmoi.osRelease.id "debian" }}
+dot_config/sway/
+{{ end }}

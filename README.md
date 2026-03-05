@@ -1,41 +1,71 @@
 # dotfiles
 
-Personal dotfiles, managed with [GNU Stow](https://www.gnu.org/software/stow/) (migration to [chezmoi](https://www.chezmoi.io/) planned).
+Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 
 ## Usage
 
+Fresh install:
+
 ```sh
-stow --target=$HOME <package>
+chezmoi init --apply git@github.com:florianfeigl/dotfiles.git
 ```
 
-## Packages
+Or with an existing clone:
 
-| Package | Description |
-|---------|-------------|
-| `alacritty` | GPU-accelerated terminal emulator (TOML config) |
-| `ghostty` | Ghostty terminal emulator (Catppuccin Macchiato) |
-| `hyprland` | Hyprland compositor + waybar + hypridle/hyprlock |
-| `kanata` | Keyboard remapper (CapsLock->Esc/Ctrl, home row mods) |
-| `kitty` | Kitty terminal emulator (Catppuccin Macchiato) |
-| `mimeapps` | Default application associations |
-| `mpd` | Music Player Daemon (PipeWire + FIFO visualizer) |
-| `ncmpcpp` | MPD client with spectrum visualizer |
-| `nvim` | Neovim (Lazy.nvim, LSP, Treesitter, Catppuccin Macchiato) |
-| `sway` | Sway compositor (Debian workstations) |
-| `tmux` | Terminal multiplexer (TPM, vim-tmux-navigator) |
-| `vim` | Minimal vimrc fallback |
-| `weechat` | IRC client (secrets managed via pass) |
-| `wofi` | Wayland application launcher |
-| `yazi` | Terminal file manager (Catppuccin Macchiato) |
-| `zsh` | Zsh + zinit + Starship prompt |
+```sh
+chezmoi init --source ~/path/to/dotfiles --apply
+```
+
+### Migrating from Stow
+
+If your system still uses stow symlinks, run the migration script first:
+
+```sh
+cd ~/path/to/dotfiles
+git pull
+./migrate.sh
+```
+
+This removes all stow symlinks and initializes chezmoi.
+
+## Structure
+
+| Path | Description |
+|------|-------------|
+| `dot_config/alacritty/` | GPU-accelerated terminal emulator (TOML config) |
+| `dot_config/ghostty/` | Ghostty terminal emulator (Catppuccin Macchiato) |
+| `dot_config/hypr/` | Hyprland compositor + hypridle/hyprlock (Arch only) |
+| `dot_config/kanata/` | Keyboard remapper (CapsLock->Esc/Ctrl, home row mods) |
+| `dot_config/kitty/` | Kitty terminal emulator (Catppuccin Macchiato) |
+| `dot_config/mimeapps.list` | Default application associations |
+| `dot_config/mpd/` | Music Player Daemon (PipeWire + FIFO visualizer) |
+| `dot_config/ncmpcpp/` | MPD client with spectrum visualizer |
+| `dot_config/nvim/` | Neovim (Lazy.nvim, LSP, Treesitter, Catppuccin Macchiato) |
+| `dot_config/starship.toml` | Starship prompt config |
+| `dot_config/sway/` | Sway compositor (Debian only) |
+| `dot_config/systemd/` | Systemd user services (kanata) |
+| `dot_config/waybar/` | Waybar status bar (Catppuccin Macchiato, Arch only) |
+| `dot_config/weechat/` | IRC client (secrets managed via pass) |
+| `dot_config/wofi/` | Wayland application launcher |
+| `dot_config/yazi/` | Terminal file manager (Catppuccin Macchiato) |
+| `dot_zshrc` | Zsh + zinit + Starship prompt |
+| `dot_tmux.conf` | Terminal multiplexer (TPM, vim-tmux-navigator) |
+| `dot_vimrc` | Minimal vimrc fallback |
+
+## Distro-specific configs
+
+Managed via `.chezmoiignore` templates:
+
+- **Arch Linux**: deploys Hyprland + Waybar, skips Sway
+- **Debian**: deploys Sway, skips Hyprland + Waybar
+
+## Theme
+
+[Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) across all applications. Font: MesloLGS Nerd Font Mono.
 
 ## Related
 
 - [cloud-init](https://github.com/florianfeigl/cloud-init) -- Machine provisioning (package lists, cloud-init configs, SDDM theme)
-
-## Theme
-
-[Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) across all applications (terminals, neovim, waybar, wofi, sway, yazi). Font: MesloLGS Nerd Font Mono.
 
 ## mpd + ncmpcpp
 
@@ -43,7 +73,7 @@ stow --target=$HOME <package>
 
 1. Install: `pacman -S mpd ncmpcpp`
 2. Create directories: `mkdir -p ~/.mpd/playlists`
-3. Stow configs: `stow mpd ncmpcpp`
+3. Apply configs: `chezmoi apply`
 4. Start mpd: `systemctl --user enable --now mpd`
 5. Launch: `ncmpcpp`
 
@@ -61,17 +91,3 @@ mpc play
 # Save as playlist
 mpc save "radio-stations"
 ```
-
-### Podcasts
-
-mpd has no native podcast support. Options:
-
-- **podboat** (part of newsboat): CLI podcast manager. Add RSS feeds to
-  `~/.newsboat/urls`, download episodes with podboat, play via mpd.
-  `pacman -S newsboat`
-
-- **castero**: Dedicated TUI podcast client. Standalone player (does not
-  use mpd). `yay -S castero-git`
-
-Recommendation: **podboat** integrates better with your existing mpd setup.
-Download episodes to `~/Music/Podcasts/`, they appear in mpd automatically.
