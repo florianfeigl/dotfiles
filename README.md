@@ -7,13 +7,19 @@ Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 Fresh install:
 
 ```sh
-chezmoi init --apply git@github.com:florianfeigl/dotfiles.git
+chezmoi init git@github.com:florianfeigl/dotfiles.git --apply
 ```
 
-Or with an existing clone:
+This clones the repo to `~/.local/share/chezmoi/` and deploys all configs.
+
+### Day-to-day workflow
 
 ```sh
-chezmoi init --source ~/path/to/dotfiles --apply
+chezmoi update          # pull latest changes from remote and apply
+chezmoi edit <file>     # edit a managed file in the source dir
+chezmoi apply -v        # apply local source changes to $HOME
+chezmoi cd              # cd into the source repo for git operations
+chezmoi diff            # preview what would change
 ```
 
 ### Migrating from Stow
@@ -21,12 +27,13 @@ chezmoi init --source ~/path/to/dotfiles --apply
 If your system still uses stow symlinks, run the migration script first:
 
 ```sh
-cd ~/path/to/dotfiles
-git pull
+chezmoi init git@github.com:florianfeigl/dotfiles.git
+cd $(chezmoi source-path)
 ./migrate.sh
+chezmoi apply
 ```
 
-This removes all stow symlinks and initializes chezmoi.
+This removes all stow symlinks and deploys configs via chezmoi.
 
 ### Verify deployment
 
@@ -45,7 +52,7 @@ What to check:
 - **Monitor resolution** returns to native (no unexpected scaling)
 - **Keyboard layout** switches to `de`
 - **Waybar** appears with Catppuccin Macchiato colors
-- **Terminal** (kitty/ghostty/alacritty) uses Macchiato color scheme
+- **Terminal** (alacritty) uses Macchiato color scheme and correct padding
 
 If the compositor does not pick up the new config, log out and back in.
 
