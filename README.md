@@ -28,6 +28,27 @@ git pull
 
 This removes all stow symlinks and initializes chezmoi.
 
+### Verify deployment
+
+After `chezmoi apply`, reload your compositor to confirm the configs are active:
+
+```sh
+# Hyprland (Arch)
+hyprctl reload
+
+# Sway (Debian)
+swaymsg reload
+```
+
+What to check:
+
+- **Monitor resolution** returns to native (no unexpected scaling)
+- **Keyboard layout** switches to `de`
+- **Waybar** appears with Catppuccin Macchiato colors
+- **Terminal** (kitty/ghostty/alacritty) uses Macchiato color scheme
+
+If the compositor does not pick up the new config, log out and back in.
+
 ## Structure
 
 | Path | Description |
