@@ -1,4 +1,4 @@
-# dotfiles
+# chezmoi
 
 Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 
@@ -7,7 +7,7 @@ Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 Fresh install:
 
 ```sh
-chezmoi init git@github.com:florianfeigl/dotfiles.git --apply
+chezmoi init git@github.com:florianfeigl/chezmoi.git --apply
 ```
 
 This clones the repo to `~/.local/share/chezmoi/` and deploys all configs.
@@ -27,7 +27,7 @@ chezmoi diff            # preview what would change
 If your system still uses stow symlinks, run the migration script first:
 
 ```sh
-chezmoi init git@github.com:florianfeigl/dotfiles.git
+chezmoi init git@github.com:florianfeigl/chezmoi.git
 cd $(chezmoi source-path)
 ./migrate.sh
 chezmoi apply

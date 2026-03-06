@@ -7,7 +7,7 @@ set -euo pipefail
 # It removes stow symlinks and dangling references, then applies chezmoi.
 #
 # Prerequisites:
-#   chezmoi init git@github.com:florianfeigl/dotfiles.git
+#   chezmoi init git@github.com:florianfeigl/chezmoi.git
 #
 # Usage:
 #   cd $(chezmoi source-path)
@@ -68,7 +68,7 @@ echo "--- Applying chezmoi ---"
 if ! command -v chezmoi &>/dev/null; then
     echo "ERROR: chezmoi not found."
     echo "Install it first, then run:"
-    echo "  chezmoi init git@github.com:florianfeigl/dotfiles.git --apply"
+    echo "  chezmoi init git@github.com:florianfeigl/chezmoi.git --apply"
     exit 1
 fi
 
