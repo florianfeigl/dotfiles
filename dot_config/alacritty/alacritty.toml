@@ -7,7 +7,7 @@ import = [
 live_config_reload = true
 
 [window]
-padding = { x = 3, y = 3 }
+padding = { x = 8, y = 2 }
 decorations = "None"
 dynamic_padding = true
 opacity = 0.95

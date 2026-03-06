@@ -264,7 +264,7 @@ bindsym $mod+shift+b exec firefox
 bindsym ctrl+$mod+f exec yazi
 
 # Open a terminal emulator:
-set $term kitty
+set $term alacritty
 bindsym $mod+q exec $term
 
 # Kill focused window:
