@@ -22,6 +22,11 @@ vim.g.maplocalleader = " "
 
 require("lazy").setup({
 	spec = {
+		-- Import LazyVim's base plugins first
+		{ import = "lazyvim.plugins" },
+		-- Import none-ls extra for compatibility with existing none-ls config
+		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
+		-- Then import your custom plugins
 		{ import = "plugins" },
 	},
 	install = { colorscheme = { "catppuccin" } },

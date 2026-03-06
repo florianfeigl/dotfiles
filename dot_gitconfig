@@ -1,0 +1,57 @@
+[user]
+	email = florian.feigl@gmail.com
+	name = Florian Feigl
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[core]
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	# Status and inspection
+	s = status -sb
+	co = checkout
+	br = branch
+	brv = branch -vv
+	lg = log --oneline --graph --decorate
+	lga = log --oneline --graph --decorate --all
+	last = log -1 HEAD
+	
+	# Committing
+	ci = commit
+	ca = commit --amend
+	can = commit --amend --no-edit
+	
+	# Staging
+	aa = add -A
+	ap = add -p
+	
+	# Diff
+	d = diff
+	dc = diff --cached
+	ds = diff --stat
+	
+	# Remote
+	pu = push
+	pl = pull
+	plr = pull --rebase
+	f = fetch
+	fa = fetch --all
+	
+	# Cleanup
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+	
+	# Interactive rebase
+	ri = rebase -i
+	ria = rebase -i --autosquash
+	
+	# Stash
+	sl = stash list
+	sp = stash pop
+	ss = stash save
