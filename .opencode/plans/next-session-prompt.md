@@ -6,11 +6,12 @@ Kopiere den folgenden Block als ersten Prompt:
 
 ## Kontext
 
-Ich habe in der letzten Session mein dotfiles-Setup komplett umgebaut:
+Ich habe mein dotfiles-Setup komplett umgebaut:
 
 - **chezmoi** (`git@github.com:florianfeigl/chezmoi.git`): Von GNU Stow auf chezmoi migriert. Chezmoi Source liegt unter `~/.local/share/chezmoi/`. Catppuccin Macchiato als globales Theme. Alacritty ist Standard-Terminal.
-- **cloud-init** (`git@github.com:florianfeigl/cloud-init.git`): Neues Repo für Maschinenprovisioning mit Paketlisten (Arch + Debian), cloud-init YAMLs und einem `bootstrap.sh` Script. Lokaler Klon liegt aktuell noch unter `~/src/Grive/Repositories/cloud-init/`, soll nach `~/repos/cloud-init/` verschoben werden.
+- **cloud-init** (`git@github.com:florianfeigl/cloud-init.git`): Repo für Maschinenprovisioning mit Paketlisten (Arch + Debian), cloud-init YAMLs und `bootstrap.sh`. Lokaler Klon liegt aktuell noch unter `~/src/Grive/Repositories/cloud-init/`, soll nach `~/repos/cloud-init/` verschoben werden.
 - **rclone**: `~/src/Grive` und `~/src/Proton` sind per rclone mit Cloud-Remotes `Grive:` und `Proton:` verbunden. Ich will den Sync abschalten und nur noch bei Bedarf Dateien hoch/runterladen. Davor brauche ich einen finalen bidirektionalen Abgleich.
+- **Ziel-Verzeichnisstruktur**: `~/repos/` als einziges Repo-Verzeichnis. Dotfiles bleiben in `~/.local/share/chezmoi/` (chezmoi Standard).
 
 ## Offene Aufgaben
 
@@ -28,6 +29,7 @@ Vorgehen:
 
 - `~/src/Grive/Repositories/cloud-init/` nach `~/repos/cloud-init/` verschieben (git remote bleibt gleich)
 - Nach dem rclone-Abgleich: `~/src/Grive/` und `~/src/Proton/` Verzeichnisse evaluieren -- was kann weg, was bleibt
+- `~/repos/migration-backup/` enthält dieses Prompt-Dokument als Referenz
 - Ziel: `~/repos/` als einziges Repo-Verzeichnis
 
 ### 3. Starship updaten
@@ -46,6 +48,24 @@ swaymsg reload
 ```
 
 Das `.chezmoiignore` sorgt dafür, dass Hyprland/Waybar auf Debian übersprungen und Sway deployed wird.
+
+### 5. Ctrl+Shift+J funktioniert nicht in Alacritty (Newline in OpenCode)
+
+Alacritty unterstützt kein Kitty keyboard protocol. Dadurch werden bestimmte Ctrl+Shift-Kombinationen nicht korrekt an TUI-Apps weitergereicht. Mögliche Lösungen:
+
+- Alternativen Keybind in OpenCode konfigurieren (falls möglich)
+- Ghostty oder Kitty als Terminal für OpenCode verwenden (beide unterstützen das erweiterte Keyboard-Protokoll)
+- Prüfen ob Alacritty inzwischen das Kitty keyboard protocol unterstützt (Feature-Request existiert: https://github.com/alacritty/alacritty/issues/6378)
+
+### 6. Arch Linux Neuinstallation planen
+
+Das bestehende Arch-System lässt sich nicht mehr ordnungsgemäss updaten. Bei der Neuinstallation:
+```sh
+# Nach archinstall und erstem Boot:
+curl -fsSL https://raw.githubusercontent.com/florianfeigl/cloud-init/main/bootstrap.sh | bash
+# Log out/in, dann:
+hyprctl reload
+```
 
 ## Wichtige Regeln
 
