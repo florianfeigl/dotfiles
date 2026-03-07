@@ -94,6 +94,14 @@ Managed via `.chezmoiignore` templates:
 ## Related
 
 - [cloud-init](https://github.com/florianfeigl/cloud-init) -- Machine provisioning (package lists, cloud-init configs, SDDM theme)
+- [AI Assistance Documentation](./docs/ai-assistance.md) -- Documentation of AI-assisted fixes and improvements
+
+## TODO
+
+### System Configuration Improvements
+- **Low-battery warning system**: Implement automatic monitoring with visual/audible alerts at critical battery levels (e.g., 15%)
+- **Graceful shutdown on power loss**: Automatic save of work and clean shutdown procedures
+- **Configuration**: Explore systemd services or dedicated monitoring daemon solutions
 
 ## mpd + ncmpcpp
 

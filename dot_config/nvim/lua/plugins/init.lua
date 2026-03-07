@@ -1,0 +1,18 @@
+return {
+  { import = "plugins.ansible" },
+  { import = "plugins.autopairs" },
+  { import = "plugins.catppuccin" },
+  { import = "plugins.completions" },
+  { import = "plugins.lualine" },
+  { import = "plugins.mason-lsp" },
+  { import = "plugins.neo-tree" },
+  { import = "plugins.none-ls" },
+  { import = "plugins.silicon" },
+  { import = "plugins.snacks" },
+  { import = "plugins.telescope" },
+  { import = "plugins.tmux" },
+  { import = "plugins.treesitter" },
+  { import = "plugins.vim-settings" },
+  { import = "plugins.vimtex" },
+  { import = "plugins.which-key" },
+}
