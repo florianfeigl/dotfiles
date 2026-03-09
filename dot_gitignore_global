@@ -1,0 +1,96 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+*.orig
+*.bak
+*.backup
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+.project
+.classpath
+.settings/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+.eggs/
+*.egg
+*.egg-info/
+dist/
+build/
+.cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+.tox/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.yarn/
+.next/
+out/
+dist/
+
+# Rust
+/target/
+**/*.rs.bk
+
+# Go
+vendor/
+*.test
+*.out
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Compiled files
+*.com
+*.exe
+*.dll
+*.o
+*.obj
+*.so
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# System files
+.directory
+*.lock
+*.pid
+*.seed
+*.pid.lock
