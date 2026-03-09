@@ -3,7 +3,7 @@
 * {
   border: none;
   border-radius: 6px;
-  font-family: "MesloLGS Nerd Font Mono", FontAwesome, monospace;
+  font-family: "Hack Nerd Font", "Symbols Nerd Font", "IosevkaTerm Nerd Font", "JetBrainsMonoNL Nerd Font Propo", "MesloLGS Nerd Font Mono", FontAwesome, monospace;
   font-size: 18px;
   min-height: 30px;
 }
