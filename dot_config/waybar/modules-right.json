@@ -73,7 +73,7 @@
   },
 
   "custom/power": {
-    "format": "⏻",
+    "format": "󰐥",
     "tooltip": false,
     "on-click": "~/.config/waybar/power_menu.sh"
   }
