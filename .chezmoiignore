@@ -1,5 +1,6 @@
 # Repo metadata -- do not deploy to $HOME
 README.md
+AGENTS.md
 LICENSE
 .git/
 .gitignore

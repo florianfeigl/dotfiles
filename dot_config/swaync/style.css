@@ -1,0 +1,203 @@
+/* Catppuccin Macchiato */
+:root {
+  --base:    #24273a;
+  --mantle:  #1e2030;
+  --crust:   #181926;
+  --surface0: #363a4f;
+  --surface1: #494d64;
+  --surface2: #5b6078;
+  --overlay0: #6e738d;
+  --overlay1: #8087a2;
+  --overlay2: #939ab7;
+  --text:    #cad3f5;
+  --subtext0: #a5adcb;
+  --subtext1: #b8c0e0;
+  --mauve:   #c6a0f6;
+  --red:     #ed8796;
+  --yellow:  #eed49f;
+  --green:   #a6da95;
+  --blue:    #8aadf4;
+  --teal:    #8bd5ca;
+
+  --cc-bg: rgba(36, 39, 58, 0.95);
+  --noti-bg: 54, 58, 79;
+  --noti-bg-alpha: 0.95;
+  --noti-bg-darker: rgb(30, 32, 48);
+  --noti-bg-hover: rgb(73, 77, 100);
+  --noti-bg-focus: rgba(91, 96, 120, 0.6);
+  --noti-close-bg: rgba(110, 115, 141, 0.3);
+  --noti-close-bg-hover: rgba(110, 115, 141, 0.5);
+  --noti-border-color: rgba(198, 160, 246, 0.3);
+  --text-color: rgb(202, 211, 245);
+  --text-color-disabled: rgb(110, 115, 141);
+  --bg-selected: rgb(138, 173, 244);
+  --border-radius: 10px;
+  --notification-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.5);
+  --font-size-body: 14px;
+  --font-size-summary: 15px;
+  --hover-transition: background 0.15s ease-in-out;
+  --group-collapse-transition: opacity 400ms ease-in-out;
+}
+
+notificationwindow, blankwindow {
+  background: transparent;
+}
+
+.close-button {
+  background: var(--noti-close-bg);
+  color: var(--text-color);
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 8px;
+  margin-right: 8px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  background: var(--noti-close-bg-hover);
+  transition: var(--hover-transition);
+  border: none;
+}
+
+.notification-row {
+  background: none;
+  outline: none;
+}
+
+.notification-row:focus {
+  background: var(--noti-bg-focus);
+}
+
+.notification-row .notification-background {
+  padding: 6px 12px;
+}
+
+.notification-row .notification-background .notification {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--noti-border-color);
+  padding: 0;
+  transition: var(--hover-transition);
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  box-shadow: var(--notification-shadow);
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  transition: var(--hover-transition);
+  border-radius: var(--border-radius);
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover {
+  background: var(--noti-bg-hover);
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
+  font-size: var(--font-size-summary);
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+  font-size: var(--font-size-summary);
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: none;
+  margin-right: 30px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
+  font-size: var(--font-size-body);
+  color: var(--subtext0);
+  text-shadow: none;
+}
+
+.notification-group {
+  transition: opacity 200ms ease-in-out;
+}
+
+.notification-group.collapsed.not-expanded {
+  opacity: 0.4;
+}
+
+.control-center {
+  background: var(--cc-bg);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--noti-border-color);
+}
+
+.control-center .control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.control-center .control-center-list {
+  background: transparent;
+}
+
+.control-center .control-center-list .notification {
+  box-shadow: var(--notification-shadow);
+}
+
+.control-center .control-center-list .notification .notification-default-action:hover,
+.control-center .control-center-list .notification .notification-action:hover {
+  background-color: var(--noti-bg-hover);
+}
+
+.blank-window {
+  background: transparent;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+/* Widgets */
+.widget {
+  margin: 8px;
+  padding: 8px;
+  border-radius: var(--border-radius);
+}
+
+.widget-title > label {
+  margin-right: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--mauve);
+}
+
+.widget-title > button {
+  margin-left: 8px;
+  border-radius: var(--border-radius);
+  background: var(--surface0);
+  color: var(--text-color);
+  border: none;
+}
+
+.widget-title > button:hover {
+  background: var(--surface1);
+}
+
+.widget-dnd label {
+  color: var(--text-color);
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.widget-dnd switch {
+  border-radius: var(--border-radius);
+  margin-left: 8px;
+}
+
+.widget-dnd switch:checked {
+  background: var(--mauve);
+}
