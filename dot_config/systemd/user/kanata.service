@@ -1,12 +1,28 @@
 [Unit]
 Description=Kanata keyboard remapper
 Documentation=https://github.com/jtroo/kanata
+After=graphical-session.target
+Wants=graphical-session.target
 
 [Service]
-Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:%h/.cargo/bin
 Type=simple
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:%h/.cargo/bin
+
+; Output logging to systemd journal
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=kanata
+
+; Keyboard input handling requires high priority
+Nice=-5
+
+; Start the kanata service
 ExecStart=%h/.cargo/bin/kanata --cfg %h/.config/kanata/config.kbd
+
+; Restart behavior
 Restart=always
+RestartSec=5
+TimeoutStopSec=10
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

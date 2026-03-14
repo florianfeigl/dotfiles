@@ -4,13 +4,24 @@ Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 
 ## Usage
 
-Fresh install:
+### Fresh install
+
+**Recommended:** Clone to `~/repos/chezmoi` for easier management and visibility:
+
+```sh
+mkdir -p ~/repos
+chezmoi init git@github.com:florianfeigl/chezmoi.git \
+  --source ~/repos/chezmoi \
+  --apply
+```
+
+This clones the repo to `~/repos/chezmoi/` and deploys all configs.
+
+**Alternative:** Use default location (`~/.local/share/chezmoi/`):
 
 ```sh
 chezmoi init git@github.com:florianfeigl/chezmoi.git --apply
 ```
-
-This clones the repo to `~/.local/share/chezmoi/` and deploys all configs.
 
 ### Day-to-day workflow
 
@@ -94,6 +105,7 @@ Managed via `.chezmoiignore` templates:
 ## Related
 
 - [cloud-init](https://github.com/florianfeigl/cloud-init) -- Machine provisioning (package lists, cloud-init configs, SDDM theme)
+  - See **`INFO.md`** in cloud-init for complete dependency and configuration information
 - [AI Assistance Documentation](./docs/ai-assistance.md) -- Documentation of AI-assisted fixes and improvements
 
 ## TODO

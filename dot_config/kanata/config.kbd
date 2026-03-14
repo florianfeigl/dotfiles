@@ -1,45 +1,122 @@
-;; kanata configuration
+;; Kanata Keyboard Configuration
+;; 
+;; Key Remapping Strategy:
+;; - CapsLock → Esc (tap) / Ctrl (hold)
+;; - Home row mods (ASDF / JKLA):
+;;   A → Super (Meta) | S → Alt | D → Shift | F → Ctrl
+;;   J → Ctrl | K → Shift | L → Alt
+;;
+;; Last Updated: 2026-03-15
+;; Device: Generic (compatible with most USB keyboards)
+;; Note: Uncomment linux-dev to target specific keyboard by ID
 
 (defcfg
   process-unmapped-keys yes
+  ;; Uncomment and adjust to target a specific keyboard:
   ;; linux-dev /dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd
+  ;; 
+  ;; To find your keyboard device:
+  ;; $ ls -la /dev/input/by-id/ | grep -i keyboard
+  ;; $ cat /proc/bus/input/devices
 )
+
+;;; ============================================================================
+;;; TIMING VARIABLES
+;;; ============================================================================
+;;; Adjust these values to match your typing speed and hold preferences:
+;;; - tap-time: milliseconds to distinguish tap from hold (lower = faster)
+;;; - hold-time: milliseconds before a hold action activates
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 200      ;; Time before key is considered held (affect home-row mods)
+  hold-time 200     ;; Time after which hold action activates
 )
+
+;;; ============================================================================
+;;; SOURCE KEYS (defsrc)
+;;; ============================================================================
+;;; Define the physical keys that Kanata will intercept and remap.
+;;; These keys will NOT be passed through unmodified by default.
+;;; All other keys remain unmapped (pass through as-is).
 
 (defsrc
-  caps 
+  ;; Main row (row 1)
+  caps
+  
+  ;; Letter row (rows 2 & 3)
   a s d f
-  j k l ;; ;
+  j k l ;;
 )
+
+;;; ============================================================================
+;;; KEY ALIASES (defalias)
+;;; ============================================================================
+;;; Define named aliases for complex key combinations and behaviors.
 
 (defalias
+  ;; CapsLock → Esc (tap) / Left Ctrl (hold)
+  ;; Timing: 100ms for both tap and hold for snappy response
   escctrl (tap-hold 100 100 esc lctrl)
-    
-  hr-asuper (tap-hold $tap-time $hold-time a lmet)
-  hr-salt (tap-hold $tap-time $hold-time s lalt)
-  hr-dshift (tap-hold $tap-time $hold-time d lshift)
-  hr-fctrl (tap-hold $tap-time $hold-time f lctrl)
 
-  hr-jctrl (tap-hold $tap-time $hold-time j rctrl)
-  hr-kshift (tap-hold $tap-time $hold-time k rshift)
-  hr-lalt (tap-hold $tap-time $hold-time l ralt)
-  ;;hr-oesuper (tap-hold $tap-time $hold-time (unicode ö) rmet)
+  ;; HOME ROW MODS - Left hand
+  ;; Hold for modifier, tap for letter (useful for touch typing)
+  hr-asuper (tap-hold $tap-time $hold-time a lmet)   ;; a → Super(tap) / Meta(hold)
+  hr-salt   (tap-hold $tap-time $hold-time s lalt)   ;; s → Alt(tap) / Alt(hold)
+  hr-dshift (tap-hold $tap-time $hold-time d lshift)  ;; d → Shift(tap) / Shift(hold)
+  hr-fctrl  (tap-hold $tap-time $hold-time f lctrl)   ;; f → Ctrl(tap) / Ctrl(hold)
+
+  ;; HOME ROW MODS - Right hand
+  ;; Right side mirror: j=Ctrl, k=Shift, l=Alt, ;=Meta (optional)
+  hr-jctrl  (tap-hold $tap-time $hold-time j rctrl)   ;; j → Ctrl(tap) / Ctrl(hold)
+  hr-kshift (tap-hold $tap-time $hold-time k rshift)  ;; k → Shift(tap) / Shift(hold)
+  hr-lalt   (tap-hold $tap-time $hold-time l ralt)    ;; l → Alt(tap) / Alt(hold)
+
+  ;; Optional: Unicode support (uncomment if your system supports it)
+  ;; hr-oesuper (tap-hold $tap-time $hold-time (unicode ö) rmet)  ;; ö → Super(hold)
 )
 
+;;; ============================================================================
+;;; KEY LAYERS (deflayer)
+;;; ============================================================================
+;;; Define the mapping layer. Currently only one layer (base) is active.
+;;; Future: Add gaming mode, dvorak layout, or other layers here.
+
 (deflayer base
+  ;; CapsLock row
   @escctrl
-  
+
+  ;; Left home row (ASDF → with modifiers)
   @hr-asuper
   @hr-salt
   @hr-dshift
   @hr-fctrl
 
+  ;; Right home row (JKLA → with modifiers)
   @hr-jctrl
   @hr-kshift
   @hr-lalt
-  ;;@hr-oesuper
+
+  ;; Optional: Uncomment for Unicode support
+  ;; @hr-oesuper
 )
+
+;;; ============================================================================
+;;; NOTES FOR FUTURE EXPANSION
+;;; ============================================================================
+;;; 
+;;; Function Keys:
+;;;   Add F1-F12 remapping if needed
+;;;   Example: (defsrc ... f1 f2 f3 ...)
+;;; 
+;;; Numpad/Arrows:
+;;;   Add arrow key layers for modal editing
+;;;   Example: Layer-switch via hold on specific keys
+;;; 
+;;; Gaming Mode:
+;;;   Disable home-row-mods for WASD movement
+;;;   Keep CapsLock → Ctrl for push-to-talk
+;;; 
+;;; Dvorak/Colemak:
+;;;   Create alternative layers with different defsrc mappings
+;;;   Switch via key combination (e.g., Ctrl+Alt+D)
+;;;;
