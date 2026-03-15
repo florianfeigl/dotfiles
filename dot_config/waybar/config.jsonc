@@ -12,7 +12,7 @@
 
   "modules-left": [ "custom/appmenu", "clock", "cpu", "memory", "disk", "temperature", "battery", "battery#bat2"],
   "modules-center": [ "hyprland/workspaces" ],
-  "modules-right": [ "network", "bluetooth", "tray", "backlight", "custom/volume", "custom/notification", "power-profiles-daemon", "idle_inhibitor", "custom/power" ],
+  "modules-right": [ "network", "tray", "backlight", "wireplumber", "custom/notification", "power-profiles-daemon", "idle_inhibitor", "custom/power" ],
 
   "custom/appmenu": {
     "min-length": 3,
@@ -22,8 +22,8 @@
   },
 
   "clock": {
-    "format": " {:%H:%M:%S}",
-    "format-alt": " {:%A,%d.%B  %R}",
+    "format": " {:%H:%M:%S}",
+    "format-alt": " {:%A,%d.%B  %R}",
     "interval": 1,
     "justify": "left",
     "align": 0,
@@ -59,7 +59,7 @@
       "warning": 75,
       "critical": 90
     },
-    "format": " {usage}",
+    "format": " {usage}",
     "justify": "left",
     "align": 0,
     "min-length": 5,
@@ -74,7 +74,7 @@
     "justify": "left",
     "align": 0,
     "min-length": 5,
-    "format": " {}"
+    "format": "󰍛 {}"
   },
 
   "disk": {
@@ -87,9 +87,9 @@
       "warning": 80,
       "critical": 90
     },
-    "format": " {percentage_used}",
-    "format-warning": " {percentage_used}",
-    "format-critical": " {percentage_used}"
+    "format": "󰋊 {percentage_used}",
+    "format-warning": "󰋊 {percentage_used}",
+    "format-critical": "󰋊 {percentage_used}"
   },
 
   "temperature": {
@@ -100,10 +100,9 @@
     "justify": "left",
     "align": 0,
     "min-length": 5,
-    "format": "{icon} {temperatureC}",
-    "format-warning": "{icon} {temperatureC}",
-    "format-critical": "{icon} {temperatureC}",
-    "format-icons": ["", "", ""]
+    "format": " {temperatureC}",
+    "format-warning": " {temperatureC}",
+    "format-critical": " {temperatureC}"
   },
 
   "battery": {
@@ -117,11 +116,11 @@
     "align": 0,
     "min-length": 5,
     "format": "{icon} {capacity}",
-    "format-full": "{icon} {capacity}",
-    "format-charging": " {capacity}",
-    "format-plugged": " {capacity}",
+    "format-full": "󰁹 {capacity}",
+    "format-charging": "󰂄 {capacity}",
+    "format-plugged": "󰚥 {capacity}",
     "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾"]
   },
 
   "battery#bat2": {
@@ -135,11 +134,11 @@
     "align": 0,
     "min-length": 5,
     "format": "{icon} {capacity}",
-    "format-full": "{icon} {capacity}",
-    "format-charging": " {capacity}",
-    "format-plugged": " {capacity}",
+    "format-full": "󰁹 {capacity}",
+    "format-charging": "󰂄 {capacity}",
+    "format-plugged": "󰚥 {capacity}",
     "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾"]
   },
 
   "network": {
@@ -148,8 +147,8 @@
     "format-wifi": "{icon} {essid}",
     "format-ethernet": "{icon} {ipaddr}/{cidr}",
     "format-icons": {
-      "wifi": "",
-      "ethernet": "",
+      "wifi": "󰖩",
+      "ethernet": "󰈀",
       "disconnected": "⚠"
     },
     "tooltip-format": "{icon} {ifname} via {gwaddr} ",
@@ -158,41 +157,21 @@
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
 
-  "bluetooth": {
-    "format": "{icon}",
-    "format-icons": {
-      "enabled-connected": "󰂱",
-      "enabled-disconnected": "󰂲",
-      "disabled": "󰂲"
-    },
-    "tooltip-format": "{status}",
-    "on-click": "blueman-manager"
-  },
-
   "backlight": {
     "justify": "center",
     "min-length": 6,
     "format": "{icon} {percent}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "󰃞", "󰃟", "󰃠"]
   },
 
-  "custom/volume": {
-    "justify": "center",
-    "min-length": 6,
-    "format": "{icon} {output}",
-    "format-icons": {
-      "100": "",
-      "75": "",
-      "50": "",
-      "25": "",
-      "0": ""
-    },
-    "exec": "~/.config/waybar/volume.sh",
-    "exec-on-event": true,
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+  "wireplumber": {
+    "format": "{icon} {volume}",
+    "format-muted": "󰖁 muted",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol-qt"
+    "on-click-right": "pavucontrol-qt",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
 
   "tray": {
@@ -228,10 +207,10 @@
     "tooltip-format": "Profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
+      "default": "󰗑",
+      "performance": "󰓅",
+      "balanced": "󰗑",
+      "power-saver": "󰌕"
     }
   },
 
@@ -239,7 +218,7 @@
     "format": "{icon}",
     "format-icons": {
       "activated": "󰅶",
-      "deactivated": "󰒲"
+      "deactivated": "󰾫"
     }
   },
 

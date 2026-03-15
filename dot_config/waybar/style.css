@@ -32,7 +32,9 @@ window#waybar {
 #battery,
 #network,
 #bluetooth,
+#wireplumber,
 #custom-volume,
+#custom-notification,
 #tray,
 #custom-power,
 #custom-appmenu,
@@ -41,6 +43,13 @@ window#waybar {
   min-width: 42px;
   background: #24273a;
   color: #cad3f5;
+}
+
+#custom-appmenu,
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-power {
+  padding: 0 8px;
 }
 
 #cpu.good,
@@ -86,12 +95,6 @@ window#waybar {
 
 #idle_inhibitor.activated {
   background: #cad3f5;
-}
-
-#custom-notification {
-  background: #24273a;
-  color: #cad3f5;
-  min-width: 42px;
 }
 
 #custom-notification.dnd-none,
