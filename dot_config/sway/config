@@ -87,7 +87,7 @@ input * xkb_layout de
 # Set the waybar command for the application launcher:
 bar {
     position top
-    font pango:JetBrainsMono Nerd Font 14
+    font pango:IosevkaTerm Nerd Font 14
     gaps 4
     workspace_min_width 64
     tray_padding 8
@@ -97,8 +97,10 @@ bar {
     status_command ~/.config/sway/status.sh
 
     colors {
-        statusline #ffffff
-        background #323232
+        statusline #cad3f5
+        background #24273a
+        focused_workspace #c6a0f6 #c6a0f6 #000000
+        inactive_workspace #363a4f #363a4f #cad3f5
     }
 }
 
@@ -119,13 +121,16 @@ bindsym $mod+Shift+e exec $HOME/.config/sway/exit.sh
 
 # Screen locking (automatic, with a timeout)
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
+    timeout 300 '~/.config/sway/lockscreen.sh' \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
+    before-sleep '~/.config/sway/lockscreen.sh'
+
+# Keychron V1 Encoder Daemon (Press=Mute, Rotate=Volume)
+exec ~/.config/sway/encoder-daemon.sh
 
 # Screen locking (manual)
-bindsym $mod+l exec 'swaylock -f -c 000000'
+bindsym $mod+l exec '~/.config/sway/lockscreen.sh'
 
 
 #========================================#
@@ -264,7 +269,7 @@ bindsym $mod+shift+b exec firefox
 bindsym ctrl+$mod+f exec yazi
 
 # Open a terminal emulator:
-set $term alacritty
+set $term ghostty
 bindsym $mod+q exec $term
 
 # Kill focused window:

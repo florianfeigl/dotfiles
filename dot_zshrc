@@ -31,6 +31,9 @@ path=(
 )
 export PATH
 
+# Locale (needed for Waybar clock display)
+export LANG=en_GB.UTF-8
+
 # Standard-Editoren & Pager
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -78,7 +81,7 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
 
 # fzf-tab Feinschliff
 zstyle ':fzf-tab:*' switch-group ',' '.'

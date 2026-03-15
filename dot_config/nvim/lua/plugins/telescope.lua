@@ -30,15 +30,4 @@ return {
       telescope.load_extension("ui-select")
     end,
   },
-
-  -- plugins/toggleterm.lua
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    opts = {
-      open_mapping = [[<c-\>]],
-      direction = "float",
-      float_opts = { border = "curved" },
-    },
-  },
 }

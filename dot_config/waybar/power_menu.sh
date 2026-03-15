@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chosen=$(printf "🔒 \tSperren\n⏾ \tLogout\n🔁 \tNeustart\n⏻ \tAusschalten" | wofi --dmenu --width 300 --height 200 --prompt "Aktion wählen")
+chosen=$(printf "🔒 \tSperren\n⏾ \tLogout\n🔁 \tNeustart\n⏻ \tAusschalten" | fuzzel --dmenu --width=35 --lines=4 --prompt "Aktion wählen")
 
 case "$chosen" in
   "🔒 Sperren") hyprlock ;;

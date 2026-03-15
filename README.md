@@ -74,7 +74,7 @@ If the compositor does not pick up the new config, log out and back in.
 | `dot_config/alacritty/` | GPU-accelerated terminal emulator (TOML config) |
 | `dot_config/ghostty/` | Ghostty terminal emulator (Catppuccin Macchiato) |
 | `dot_config/hypr/` | Hyprland compositor + hypridle/hyprlock (Arch only) |
-| `dot_config/kanata/` | Keyboard remapper (CapsLock->Esc/Ctrl, home row mods) |
+| `dot_config/kanata/` | Keyboard remapper config (CapsLock→Esc/Ctrl, home row mods) - install via Ansible |
 | `dot_config/kitty/` | Kitty terminal emulator (Catppuccin Macchiato) |
 | `dot_config/mimeapps.list` | Default application associations |
 | `dot_config/mpd/` | Music Player Daemon (PipeWire + FIFO visualizer) |
@@ -85,7 +85,6 @@ If the compositor does not pick up the new config, log out and back in.
 | `dot_config/systemd/` | Systemd user services (kanata) |
 | `dot_config/waybar/` | Waybar status bar (Catppuccin Macchiato, Arch only) |
 | `dot_config/weechat/` | IRC client (secrets managed via pass) |
-| `dot_config/wofi/` | Wayland application launcher |
 | `dot_config/yazi/` | Terminal file manager (Catppuccin Macchiato) |
 | `dot_zshrc` | Zsh + zinit + Starship prompt |
 | `dot_tmux.conf` | Terminal multiplexer (TPM, vim-tmux-navigator) |
@@ -100,12 +99,33 @@ Managed via `.chezmoiignore` templates:
 
 ## Theme
 
-[Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) across all applications. Font: MesloLGS Nerd Font Mono.
+[Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) across all applications. Font: IosevkaTerm Nerd Font.
+
+## Kanata Setup
+
+Kanata keyboard remapper configuration is managed by chezmoi, but **system-level setup** (udev rules, permissions, installation) is handled by Ansible.
+
+### Quick Setup
+
+```bash
+# Run Ansible to setup kanata
+cd ~/repos/ansible
+ansible-playbook playbooks/workstation.yml -t kanata
+```
+
+This automatically:
+- Creates `uinput` group and adds your user
+- Sets up udev rules for keyboard device access
+- Installs kanata via cargo
+- Enables systemd service
+
+See `~/repos/ansible/roles/kanata/README.md` for details and troubleshooting.
 
 ## Related
 
 - [cloud-init](https://github.com/florianfeigl/cloud-init) -- Machine provisioning (package lists, cloud-init configs, SDDM theme)
   - See **`INFO.md`** in cloud-init for complete dependency and configuration information
+- [ansible](https://github.com/florianfeigl/ansible) -- System automation (kanata setup, services, user configuration)
 - [AI Assistance Documentation](./docs/ai-assistance.md) -- Documentation of AI-assisted fixes and improvements
 
 ## TODO

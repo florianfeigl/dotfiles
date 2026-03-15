@@ -13,6 +13,8 @@ return {
 	},
 	{
 		"LazyVim/LazyVim",
+		lazy = true,
+		priority = 50,
 		opts = {
 			colorscheme = "catppuccin",
 		},

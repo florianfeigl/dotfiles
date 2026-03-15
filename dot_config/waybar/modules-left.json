@@ -3,7 +3,7 @@
     "min-length": 3,
     "format": "󰻀",
     "rotate": 0,
-    "on-click": "wofi --show drun"
+    "on-click": "fuzzel --show drun"
   },
 
   "clock": {

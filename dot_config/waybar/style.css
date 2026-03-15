@@ -31,7 +31,7 @@ window#waybar {
 #disk,
 #battery,
 #network,
-#pulseaudio,
+#custom-volume,
 #tray,
 #custom-power,
 #custom-appmenu,
