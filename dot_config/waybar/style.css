@@ -3,7 +3,7 @@
 * {
   border: none;
   border-radius: 6px;
-  font-family: "IosevkaTerm Nerd Font", "Symbols Nerd Font Mono", monospace;
+  font-family: "IosevkaTerm Nerd Font", "Symbols Nerd Font", monospace;
   font-size: 18px;
   min-height: 30px;
 }
@@ -31,6 +31,7 @@ window#waybar {
 #disk,
 #battery,
 #network,
+#bluetooth,
 #custom-volume,
 #tray,
 #custom-power,
