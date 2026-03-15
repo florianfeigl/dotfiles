@@ -2,7 +2,7 @@
 
 * {
   border: none;
-  border-radius: 6px;
+  border-radius: 0px;
   font-family: "IosevkaTerm Nerd Font", "Symbols Nerd Font", monospace;
   font-size: 18px;
   min-height: 30px;
@@ -17,6 +17,11 @@ window#waybar {
   padding: 0 6px;
   color: #8aadf4;
   background: transparent;
+}
+
+#workspaces button:hover {
+  background: #a5adcb;
+  color: #24273a;
 }
 
 #workspaces button.urgent {
@@ -34,13 +39,8 @@ window#waybar {
 #bluetooth,
 #wireplumber,
 #custom-volume,
-#custom-notification,
-#tray,
-#custom-power,
-#custom-appmenu,
-#idle_inhibitor,
-#power-profiles-daemon {
-  min-width: 42px;
+#custom-notification {
+  min-width: 30px;
   background: #24273a;
   color: #cad3f5;
 }
@@ -49,7 +49,21 @@ window#waybar {
 #power-profiles-daemon,
 #idle_inhibitor,
 #custom-power {
-  padding: 0 8px;
+  background: #24273a;
+  color: #cad3f5;
+}
+
+#tray {
+  background: #24273a;
+  color: #cad3f5;
+}
+
+#custom-appmenu,
+#power-profiles-daemon,
+#idle_inhibitor,
+#custom-power {
+  padding: 2px 4px;
+  min-width: 30px;
 }
 
 #cpu.good,
