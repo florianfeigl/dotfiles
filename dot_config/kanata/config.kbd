@@ -48,7 +48,7 @@
   j k l ;;
   
   ;; Special keys
-  acute  ;; ´` key (right of ?, left of backspace on German QWERTZ)
+  eql  ;; ´` key (grave/acute - right of 0, left of backspace on German QWERTZ)
 )
 
 ;;; ============================================================================
@@ -100,7 +100,7 @@
   @hr-lalt
 
   ;; Special keys
-  acute  ;; Pass through ´` key unmapped
+  eql  ;; Pass through grave/acute key unmapped
 
   ;; Optional: Uncomment for Unicode support
   ;; @hr-oesuper
