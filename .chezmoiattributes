@@ -1,0 +1,2 @@
+# Preserve executable bit for shell scripts
+dot_config/hypr/lockscreen.sh type = "file" mode = "0755"

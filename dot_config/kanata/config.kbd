@@ -46,6 +46,9 @@
   ;; Letter row (rows 2 & 3)
   a s d f
   j k l ;;
+  
+  ;; Special keys
+  acute  ;; ´` key (right of ?, left of backspace on German QWERTZ)
 )
 
 ;;; ============================================================================
@@ -95,6 +98,9 @@
   @hr-jctrl
   @hr-kshift
   @hr-lalt
+
+  ;; Special keys
+  acute  ;; Pass through ´` key unmapped
 
   ;; Optional: Uncomment for Unicode support
   ;; @hr-oesuper
