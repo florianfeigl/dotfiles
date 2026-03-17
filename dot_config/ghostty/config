@@ -26,3 +26,6 @@ scrollback-limit = 10000000
 
 # Keybindings
 keybind = ctrl+shift+enter=new_window
+
+# Environment
+env = GTK_IM_MODULE=simple

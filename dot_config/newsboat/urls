@@ -1,0 +1,36 @@
+# Format: <url> [tag1] [tag2] ["Display Name"]
+
+# ── Technology ───────────────────────────────
+https://lwn.net/headlines/rss                          tech   "LWN.net"
+https://www.phoronix.com/rss.php                       tech   "Phoronix"
+https://hnrss.org/frontpage                            tech   "Hacker News"
+https://lobste.rs/rss                                  tech   "Lobsters"
+https://arstechnica.com/feed                           tech   "Ars Technica"
+https://feeds.feedburner.com/ThePragmaticEngineer      tech   "Pragmatic Engineer"
+
+# ── AI / ML ──────────────────────────────────
+https://www.deeplearning.ai/the-batch/feed             ai     "The Batch"
+https://openai.com/blog/rss                            ai     "OpenAI Blog"
+https://www.anthropic.com/rss.xml                      ai     "Anthropic"
+https://research.google/blog/rss                       ai     "Google Research"
+https://bair.berkeley.edu/blog/feed.xml                ai     "BAIR Blog"
+https://lilianweng.github.io/index.xml                 ai     "Lilian Weng"
+
+# ── Biology ──────────────────────────────────
+https://feeds.nature.com/nbt/rss/current               bio    "Nature Biotech"
+https://feeds.nature.com/nature/rss/current            bio    science "Nature"
+https://www.biorxiv.org/rss/subject_collection/14      bio    "bioRxiv Genomics"
+https://www.ncbi.nlm.nih.gov/feed/rss.cgi?ChanKey=genome bio "NCBI Genome"
+https://www.the-scientist.com/rss                      bio    "The Scientist"
+
+# ── Science ──────────────────────────────────
+https://www.science.org/action/showFeed?type=axatoc&feed=rss&jc=science
+                                                        science "Science Mag"
+https://feeds.aps.org/rss/recent/physics.xml           science "APS Physics"
+https://phys.org/rss-feed                             science "Phys.org"
+https://www.quantamagazine.org/feed                    science "Quanta Magazine"
+https://www.newscientist.com/feed/home                 science "New Scientist"
+
+# ── Query feeds (virtual views) ──────────────
+"query:AI Today:tags # \"ai\" and age < 2"
+"query:Unread:unread = \"yes\""

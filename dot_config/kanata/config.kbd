@@ -46,9 +46,6 @@
   ;; Letter row (rows 2 & 3)
   a s d f
   j k l ;;
-  
-  ;; Special keys
-  eql  ;; ´` key (grave/acute - right of 0, left of backspace on German QWERTZ)
 )
 
 ;;; ============================================================================
@@ -98,12 +95,6 @@
   @hr-jctrl
   @hr-kshift
   @hr-lalt
-
-  ;; Special keys
-  eql  ;; Pass through grave/acute key unmapped
-
-  ;; Optional: Uncomment for Unicode support
-  ;; @hr-oesuper
 )
 
 ;;; ============================================================================

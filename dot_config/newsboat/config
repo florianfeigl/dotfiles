@@ -1,0 +1,36 @@
+# ── General ──────────────────────────────────
+auto-reload        yes
+reload-time        30          # minutes between refreshes
+max-items          100         # articles kept per feed
+show-read-feeds    no          # hide fully-read feeds
+show-read-articles no
+prepopulate-query-feeds yes
+
+# ── Browser / viewer ─────────────────────────
+browser            firefox %u
+external-url-viewer "urlview"  # optional: extract links
+
+# ── Article display ──────────────────────────
+articlelist-format "%4i %f %D  %?T?[%-17T]  &%20t?"
+feedlist-format    "%4i %n %11u  %t"
+datetime-format    "%Y-%m-%d %H:%M"
+
+# ── Colors (gruvbox-ish) ──────────────────────
+color background   default default
+color listnormal   default default
+color listfocus    black yellow bold
+color info         black yellow bold
+color article      default default
+
+# ── Keybindings ───────────────────────────────
+bind-key           j next
+bind-key           k prev
+bind-key           J next-feed feedlist
+bind-key           K prev-feed feedlist
+bind-key           G end
+bind-key           g home
+bind-key           d pagedown
+bind-key           u pageup
+
+# ── Searching ────────────────────────────────
+search-highlight-colors black yellow bold

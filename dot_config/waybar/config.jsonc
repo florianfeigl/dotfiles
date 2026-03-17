@@ -22,12 +22,12 @@
   },
 
   "clock": {
-    "format": " {:%H:%M:%S}",
-    "format-alt": " {:%A,%d.%B  %R}",
+    "format": " {:%H:%M:%S}UTC",
+    "format-alt": " {:%A,%d.%B %R}UTC",
     "interval": 1,
     "justify": "left",
     "align": 0,
-    "min-length": 11,
+    "min-length": 12,
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar-weeks-pos": "right",
     "today-format": "<span color='#ed8796'><b><u>{}</u></b></span>",
