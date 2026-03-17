@@ -22,8 +22,8 @@
   },
 
   "clock": {
-    "format": " {:%H:%M:%S} UTC",
-    "format-alt": " {:%A,%d.%B %R} UTC",
+    "format": " {:%H:%M:%S}UTC",
+    "format-alt": " {:%A,%d.%B %R}UTC",
     "interval": 1,
     "justify": "left",
     "align": 0,
