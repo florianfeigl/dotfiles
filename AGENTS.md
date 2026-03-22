@@ -1,0 +1,1 @@
+/home/feivel/repos/ai-assistance/AGENTS.md
