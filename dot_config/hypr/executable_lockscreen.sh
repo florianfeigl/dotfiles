@@ -46,6 +46,8 @@ get_music() {
     fi
 }
 
+get_lock_time() { date '+%d.%m.%Y %H:%M:%S'; }
+
 # Create blur effect from current screen
 create_blur() {
     echo "[*] Creating blur effect..."
@@ -73,6 +75,7 @@ create_blur() {
 create_hyprlock_config() {
     local time=$(get_time)
     local date=$(get_date)
+    local lock_time=$(get_lock_time)
     local battery=$(get_battery)
     local network=$(get_network)
     local bluetooth=$(get_bluetooth)
@@ -95,7 +98,7 @@ background {
 # Time (large, center)
 label {
     monitor =
-    text = $time
+    text = \$TIME
     text_align = center
     font_size = 120
     font_family = IosevkaTerm Nerd Font
@@ -118,6 +121,19 @@ label {
     halign = center
     valign = center
     color = rgb($TEXT)
+}
+
+# Lock time (static indicator when locked)
+label {
+    monitor =
+    text = Locked: $lock_time
+    text_align = center
+    font_size = 12
+    font_family = IosevkaTerm Nerd Font
+    position = 0, -50
+    halign = center
+    valign = center
+    color = rgb($SUBTEXT)
 }
 
 # Battery info (bottom right)

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-qwen-proxy"],
+  "provider": {
+    "qwen-code": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Qwen Code",
+      "options": { "baseURL": "https://portal.qwen.ai/v1" },
+      "models": {
+        "qwen3-coder-plus": {
+          "name": "Qwen3 Coder Plus",
+          "tool_call": true,
+          "limit": { "context": 1048576, "output": 65536 }
+        }
+      }
+    }
+  }
+}

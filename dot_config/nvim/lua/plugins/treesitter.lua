@@ -10,9 +10,9 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-      local ok, configs = pcall(require, "nvim-treesitter.configs")
+      local ok, configs = pcall(require, "nvim-treesitter")
       if not ok then
-        vim.notify("nvim-treesitter.configs not found, skipping config", vim.log.levels.WARN)
+        vim.notify("nvim-treesitter not found, skipping config", vim.log.levels.WARN)
         return
       end
       
