@@ -1,1 +1,0 @@
-/home/feivel/repos/model-statistics/AGENTS.md
