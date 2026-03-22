@@ -17,3 +17,6 @@ dot_config/waybar/
 {{ if ne .chezmoi.osRelease.id "debian" }}
 dot_config/sway/
 {{ end }}
+
+# Opencode dependencies
+dot_config/opencode/node_modules/**
